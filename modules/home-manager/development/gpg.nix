@@ -6,6 +6,6 @@
   # Fix pass
   services.gpg-agent = {
     enable = true;
-    pinentryFlavor = "gnome3";
+    pinentryFlavor = "gtk2";
   };
 }
