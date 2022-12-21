@@ -26,7 +26,7 @@ g.loaded_netrwPlugin = 1
 
 -- Performance
 o.lazyredraw = true
-o.shell = "fish"
+o.shell = "bash"
 o.shadafile = "NONE"
 
 -- Colors
