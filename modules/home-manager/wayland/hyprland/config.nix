@@ -115,8 +115,9 @@ in {
     windowrulev2 = rounding 0 , class:^(Code)$ # VSCODE
 
     # Variables
-    $discord = discordcanary --enable-features=VaapiVideoDecoder --use-gl=desktop --enable-gpu-rasterization --enable-zero-copy --ignore-gpu-blocklist
-    $webcord = webcord --enable-features=VaapiVideoDecoder --use-gl=desktop --enable-gpu-rasterization --enable-zero-copy --ignore-gpu-blocklist
+    $discordOption = --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-accelerated-mjpeg-decode --enable-accelerated-video --ignore-gpu-blacklist --enable-native-gpu-memory- buffers --enable-gpu-rasterization --enable-gpu --enable-features=WebRTCPipeWireCapturer
+    $discord = discordcanary $discordOption
+    $webcord = webcord $discordOption
     $powermenu = $HYPR_FOLDER/scripts/powermenu
 
     # Binds Keyboard
@@ -147,15 +148,11 @@ in {
     bind = CTRL , Print , exec , grimblast --notify copysave area
     bind = SUPER , Print , exec , grimblast --notify --cursor copysave output
 
-    #bind = SUPER , h , movefocus , l
-    #bind = SUPER , l , movefocus , r
     bind = SUPER , h , resizeactive , -20 0
     bind = SUPER , l , resizeactive , 20 0
     bind = SUPER , k , movefocus , u
     bind = SUPER , j , movefocus , d
-    bind = SUPER , k , layoutmsg , cyclenext
-    #bind = SUPER , j , layoutmsg , cycleprev
-    #bind = ALT , Return , layoutmsg , swapwithmaster
+    # bind = ALT , Return , layoutmsg , swapwithmaster
 
     bind = SUPERSHIFT , h , movewindow , l
     bind = SUPERSHIFT , l , movewindow , r
