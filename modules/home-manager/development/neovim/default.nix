@@ -42,7 +42,27 @@
       impatient-nvim
       telescope-nvim
       indent-blankline-nvim
-      nvim-treesitter
+      # nvim-treesitter
+      (nvim-treesitter.withPlugins (plugins:
+        with plugins; [
+          tree-sitter-bash
+          tree-sitter-c
+          tree-sitter-cpp
+          tree-sitter-css
+          tree-sitter-go
+          tree-sitter-html
+          tree-sitter-javascript
+          tree-sitter-json
+          tree-sitter-lua
+          tree-sitter-nix
+          tree-sitter-python
+          tree-sitter-rust
+          tree-sitter-scss
+          tree-sitter-toml
+          tree-sitter-tsx
+          tree-sitter-typescript
+          tree-sitter-yaml
+        ]))
       comment-nvim
       vim-fugitive
       nvim-web-devicons

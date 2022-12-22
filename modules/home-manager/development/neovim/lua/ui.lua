@@ -140,22 +140,21 @@ require("nvim-treesitter.configs").setup({
         enable = true,
         additional_vim_regex_highlighting = false,
     },
-    ensure_installed = {
-        "javascript",
-        "typescript",
-        "tsx",
-        "css",
-        "rust",
-        "nix",
-        "go",
-        "lua",
-    },
+    -- ensure_installed = { "javascript",
+    --     "typescript",
+    --     "tsx",
+    --     "css",
+    --     "rust",
+    --     "nix",
+    --     "go",
+    --     "lua",
+    -- },
 })
 
 require("nvim-tree").setup({
     sort_by = "case_sensitive",
     view = {
-        -- side = "right",
+        side = "right",
         adaptive_size = true,
         mappings = {
             list = {
