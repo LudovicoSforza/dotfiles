@@ -5,7 +5,7 @@
     enableCompletion = true;
     enableAutosuggestions = true;
     enableSyntaxHighlighting = true;
-    #defaultKeymap = "vicmd";
+    defaultKeymap = "emacs";
     dirHashes = {
       config = "$HOME/.config/nixos";
       dl = "$HOME/Downloads";
