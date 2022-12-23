@@ -30,7 +30,7 @@
 (setq lsp-rust-server 'rust-analyzer)
 
 ;; Set Doom theme
-(setq doom-theme 'doom-tokyo-night)
+(setq doom-theme 'doom-palenight)
 
 (setq display-line-numbers-type 'relative)
 
@@ -51,16 +51,14 @@
       :desc "Vterm popup toggle" "v t" #'+vterm/toggle)
 
 ;; Change formatter for nix files
-;; (use-package! lsp-mode
-;;   :config
-;;   (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\.terragrunt-cache\\'")
-;;   (add-to-list 'lsp-language-id-configuration '(nix-mode . "nix"))
-;;   (lsp-register-client
-;;    (make-lsp-client :new-connection (lsp-stdio-connection '("nil"))
-;;                     :major-modes '(nix-mode)
-;;                     :server-id 'nix)))
-
-;; (set-formatter! 'alejandra  "alejandra --quiet" :modes '(nix-mode))
+(use-package! lsp-mode
+  :config
+  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\.terragrunt-cache\\'")
+  (add-to-list 'lsp-language-id-configuration '(nix-mode . "nix"))
+  (lsp-register-client
+   (make-lsp-client :new-connection (lsp-stdio-connection '("nil"))
+                    :major-modes '(nix-mode)
+                    :server-id 'nix)))
 (after! nix-mode
   (set-formatter! 'alejandra "alejandra --quiet" :modes '(nix-mode))
   (map! :leader
@@ -74,7 +72,7 @@
   (rustic-lsp-server 'rust-analyzer)
   :config
   (when (featurep 'evil)
-  (add-hook! 'rustic-popup-mode-hook #'evil-emacs-state)))
+    (add-hook! 'rustic-popup-mode-hook #'evil-emacs-state)))
 
 ;; Change doom modeline to user letter instead of icon
 (use-package! doom-modeline
