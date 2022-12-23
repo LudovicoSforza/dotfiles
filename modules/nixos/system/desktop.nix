@@ -96,25 +96,25 @@
       deviceSection = ''
         Option "TearFree" "true"
       '';
-      displayManager.lightdm = {
-        enable = true;
-        greeters.gtk = {
-          theme = {
-            package = pkgs.arc-theme;
-            name = "Arc-Dark";
-          };
-          iconTheme = {
-            package = pkgs.papirus-icon-theme;
-            name = "Papirus-Dark";
-          };
-          cursorTheme = {
-            package = pkgs.capitaine-cursors;
-            name = "capitaine-cursors-white";
-            size = 24;
-          };
-        };
-      };
-      # displayManager.sddm.enable = true;
+      # displayManager.lightdm = {
+      #   enable = true;
+      #   greeters.gtk = {
+      #     theme = {
+      #       package = pkgs.arc-theme;
+      #       name = "Arc-Dark";
+      #     };
+      #     iconTheme = {
+      #       package = pkgs.papirus-icon-theme;
+      #       name = "Papirus-Dark";
+      #     };
+      #     cursorTheme = {
+      #       package = pkgs.capitaine-cursors;
+      #       name = "capitaine-cursors-white";
+      #       size = 24;
+      #     };
+      #   };
+      # };
+      displayManager.sddm.enable = true;
       displayManager.session = [
         {
           manage = "window";
