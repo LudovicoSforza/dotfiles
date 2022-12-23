@@ -122,14 +122,14 @@ in {
 
     # Binds Keyboard
     bind = SUPERSHIFT , Return , exec , foot -L tmux
-    bind = SUPERSHIFT , G , exec , chromium
+    bind = SUPER , G , exec , chromium
     bind = SUPER , C , exit ,
     bind = SUPER , D , exec , $discord
     bind = SUPERSHIFT , D , exec , $webcord
     bind = SUPERSHIFT , E , exec , [float] thunar
     bind = SUPER , E , exec , emacsclient -c -a 'nvim'
     bind = SUPER , F , fullscreen , 0
-    bind = SUPER , G , exec , ${pkgs.firefox}/bin/firefox
+    bind = SUPERSHIFT, G , exec , ${pkgs.firefox}/bin/firefox
     bind = SUPER , M , exec , [workspace 5 silent;tile] mailspring
     bind = SUPER , P , exec , wofi
     bind = SUPER , Q , exec , ${pkgs.hyprpicker}/bin/hyprpicker -f hex --autocopy
