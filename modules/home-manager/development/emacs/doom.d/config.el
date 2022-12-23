@@ -51,11 +51,21 @@
       :desc "Vterm popup toggle" "v t" #'+vterm/toggle)
 
 ;; Change formatter for nix files
+;; (use-package! lsp-mode
+;;   :config
+;;   (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\.terragrunt-cache\\'")
+;;   (add-to-list 'lsp-language-id-configuration '(nix-mode . "nix"))
+;;   (lsp-register-client
+;;    (make-lsp-client :new-connection (lsp-stdio-connection '("nil"))
+;;                     :major-modes '(nix-mode)
+;;                     :server-id 'nix)))
+
+;; (set-formatter! 'alejandra  "alejandra --quiet" :modes '(nix-mode))
 (after! nix-mode
   (set-formatter! 'alejandra "alejandra --quiet" :modes '(nix-mode))
-  (map! :localleader
+  (map! :leader
         :map nix-mode-map
-        :desc "nix-format-buffer" "p" #'+format/buffer))
+        :desc "nix-format-buffer" "f p" #'+format/buffer))
 
 ;; Change rust lsp server
 (use-package! rustic
