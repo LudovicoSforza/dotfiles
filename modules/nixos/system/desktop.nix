@@ -114,7 +114,11 @@
       #     };
       #   };
       # };
-      displayManager.sddm.enable = true;
+      displayManager.sddm = {
+        enable = true;
+        theme = "multicolor-sddm-theme";
+      };
+
       displayManager.session = [
         {
           manage = "window";

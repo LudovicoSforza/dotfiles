@@ -4,4 +4,5 @@
   # example = pkgs.callPackage ./example { };
   google-sans = pkgs.callPackage ./google-sans.nix {};
   tlauncher = pkgs.callPackage ./tlauncher {};
+  multicolor-sddm-theme = pkgs.callPackage ./multicolor-sddm-theme {};
 }

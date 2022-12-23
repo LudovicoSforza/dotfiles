@@ -118,6 +118,9 @@
     git
     wget
 
+    # SDDM Theme
+    multicolor-sddm-theme
+
     # Rust from inputs.rust-overlay
     # Install 2022-11-15 Version
     rust-bin.nightly."2022-11-15".minimal
