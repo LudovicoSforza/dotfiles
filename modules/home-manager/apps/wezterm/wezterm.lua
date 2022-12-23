@@ -74,7 +74,7 @@ end)
 return {
     font = wezterm.font_with_fallback({
         {
-            family = "FiraCode Nerd Font",
+            family = "UbuntuMono Nerd Font",
             weight = "Regular",
             harfbuzz_features = {
                 "cv01",
@@ -93,11 +93,9 @@ return {
                 "onum",
             },
         },
-        -- "FiraCode Nerd Font",
-        -- "UbuntuMono Nerd Font",
         "Noto Color Emoji",
     }),
-    font_size = 11.0,
+    font_size = 12.0,
     window_background_opacity = 0.9,
 
     color_scheme = "Catppuccin Mocha",
