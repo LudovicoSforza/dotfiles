@@ -98,6 +98,7 @@
   # programs.neovim.enable = true;
   home.packages = with pkgs; [
     discord-canary
+    tlauncher
   ];
 
   # Enable home-manager and git
