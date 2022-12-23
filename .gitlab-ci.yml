@@ -1,0 +1,11 @@
+image: nixos/nix:2.3.12
+
+build:
+  variables:
+    CACHIX_CACHE_NAME: sforza
+  before_script:
+    - nix-env --install --attr nixpkgs.cachix
+    - cachix use "$CACHIX_CACHE_NAME"
+  script:
+    - export NIXPKGS_ALLOW_UNFREE=1
+    - cachix watch-exec $CACHIX_CACHE_NAME nix-build pkgs/default.nix
