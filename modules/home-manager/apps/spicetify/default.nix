@@ -2,7 +2,7 @@
   pkgs,
   unstable,
   lib,
-  spicetify-nix,
+  inputs,
   ...
 }: {
   # allow spotify to be installed if you don't have unfree enabled already
@@ -12,18 +12,20 @@
     ];
 
   # configure spicetify :)
-  programs.spicetify = {
+  programs.spicetify = let
+    spicePkgs = inputs.spicetify-nix.packages.${pkgs.system}.default;
+    in{
     enable = true;
-    theme = "catppuccin-mocha";
+    theme = spicePkgs.themes.catppuccin-mocha;
     # OR
     # theme = spicetify-nix.pkgSets.${pkgs.system}.themes.catppuccin-mocha;
     colorScheme = "flamingo";
 
-    enabledExtensions = [
-      "fullAppDisplay.js"
-      "shuffle+.js"
-      "hidePodcasts.js"
-      "adblock.js"
+    enabledExtensions = with spicePkgs.extensions;[
+      fullAppDisplay
+      shuffle
+      hidePodcasts
+      adblock
     ];
 
     # enabledCustomApps = ["marketplace"];
