@@ -6,6 +6,7 @@
       gitignore = "curl -sL https://www.gitignore.io/api/$argv";
       # fish_title = "echo (fish_prompt_pwd_dir_length=10 prompt_pwd);";
       fish_greeting = ""; # disable welcome text
+      run = "nix run nixpkgs#$argv";
     };
     shellInit = ''
       starship init fish | source
