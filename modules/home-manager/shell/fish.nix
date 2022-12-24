@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   home.packages = with pkgs; [commitizen exa fzf fd bat ripgrep lazygit];
   programs.fish = {
     enable = true;
@@ -7,14 +11,16 @@
       # fish_title = "echo (fish_prompt_pwd_dir_length=10 prompt_pwd);";
       fish_greeting = ""; # disable welcome text
       run = "nix run nixpkgs#$argv";
+      gadd = "git add $argv";
     };
     shellInit = ''
       starship init fish | source
     '';
-    shellAliases = {
+    shellAliases = with pkgs; {
       "bs" = "doas nixos-rebuild switch --flake ~/.config/nixos";
       "bb" = "doas nixos-rebuild boot --flake ~/.config/nixos";
       "hs" = "home-manager switch --flake ~/.config/nixos";
+      "cat" = lib.getExe bat;
       "config" = "cd ~/.config/nixos";
       #"hx" = "helix";
       "lg" = "lazygit";
@@ -24,10 +30,13 @@
       "llm" = "exa -lbGF --git --sort=modified --icons";
       "la" = "exa -lbhHigUmuSa --time-style=long-iso --git --color-scale --icons";
       "lx" = "exa -lbhHigUmuSa@ --time-style=long-iso --git --color-scale --icons";
+      "tree" = "exa --tree --icons";
       "nv" = "nvim";
+      "mkdir" = "mkdir -p";
       "g" = "git";
       "gcl" = "git clone";
       "gcm" = "cz c";
+      "gd" = "git diff HEAD";
       "gpl" = "git pull";
       "gpsh" = "git push -u origin";
       "gs" = "git status";
