@@ -14,14 +14,14 @@
   # configure spicetify :)
   programs.spicetify = let
     spicePkgs = inputs.spicetify-nix.packages.${pkgs.system}.default;
-    in{
+  in {
     enable = true;
     theme = spicePkgs.themes.catppuccin-mocha;
     # OR
     # theme = spicetify-nix.pkgSets.${pkgs.system}.themes.catppuccin-mocha;
     colorScheme = "flamingo";
 
-    enabledExtensions = with spicePkgs.extensions;[
+    enabledExtensions = with spicePkgs.extensions; [
       fullAppDisplay
       shuffle
       hidePodcasts
