@@ -3,8 +3,15 @@
   inputs,
   pkgs,
   ...
-}: {
-  # Bootloader.
+}: let
+  catppuccin-mocha = pkgs.fetchFromGitHub {
+    owner = "catppuccin";
+    repo = "grub";
+    rev = "81e68949ffca426302c2e0387d861505b9ad8ce2";
+    sha256 = "sha256-op6Hu6qpErezhcSzI3D/lOTK+YMXrfvSVZKWx3VHMtk=";
+  };
+  theme = "${catppuccin-mocha}/src/catppuccin-mocha-grub-theme";
+in {
   boot = {
     extraModulePackages = with config.boot.kernelPackages; [
       v4l2loopback # Virtual Camera for OBS-Studio
@@ -23,6 +30,7 @@
         version = 2;
         device = "nodev";
         useOSProber = true;
+        theme = "${theme}";
       };
     };
     kernel.sysctl = {
