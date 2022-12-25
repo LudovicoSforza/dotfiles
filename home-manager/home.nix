@@ -87,7 +87,7 @@
   };
 
   # Set nix-colors Colorscheme
-  colorScheme = inputs.nix-colors.colorSchemes.catppuccin;
+  colorScheme = inputs.nix-colors.colorSchemes.material-palenight;
 
   home = {
     username = "ludovico";
