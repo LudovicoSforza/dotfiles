@@ -26,7 +26,7 @@ in {
         main_mod = SUPER
         gaps_in = 2
         gaps_out = 2
-        border_size = 1
+        border_size = 2
     	   col.active_border = rgb(${colors.base0D})
     	   col.inactive_border = rgb(${colors.base00})
         layout = dwindle
