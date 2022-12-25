@@ -1,5 +1,5 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [picom];
+{ pkgs, ... }: {
+  home.packages = with pkgs; [ picom ];
   xdg.configFile = {
     "picom.conf".text = ''
         ## CORNER ROUNDED

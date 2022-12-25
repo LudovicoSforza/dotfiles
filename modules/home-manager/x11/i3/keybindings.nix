@@ -1,10 +1,11 @@
-{
-  pkgs,
-  config,
-  ...
-}: let
+{ pkgs
+, config
+, ...
+}:
+let
   modifier = config.xsession.windowManager.i3.config.modifier;
-in {
+in
+{
   "${modifier}+Return" = "exec ${pkgs.kitty}/bin/kitty";
   "${modifier}+p" = "exec ${pkgs.dmenu}/bin/dmenu_run";
 

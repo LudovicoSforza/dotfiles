@@ -1,13 +1,13 @@
-{
-  lib,
-  pkgs,
-  ...
+{ lib
+, pkgs
+, ...
 }:
 with lib; let
   screen = pkgs.writeShellScriptBin "screen" ''${builtins.readFile ./screen}'';
   bandw = pkgs.writeShellScriptBin "bandw" ''${builtins.readFile ./bandw}'';
   maintenance = pkgs.writeShellScriptBin "maintenance" ''${builtins.readFile ./maintenance}'';
-in {
+in
+{
   home.packages = with pkgs; [
     ripgrep
     ffmpeg

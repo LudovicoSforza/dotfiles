@@ -1,9 +1,8 @@
-{
-  pkgs,
-  lib,
-  ...
+{ pkgs
+, lib
+, ...
 }: {
-  home.packages = [pkgs.wofi];
+  home.packages = [ pkgs.wofi ];
 
   xdg.configFile = {
     "wofi" = {

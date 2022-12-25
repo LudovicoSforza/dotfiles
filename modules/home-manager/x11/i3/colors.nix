@@ -1,10 +1,11 @@
-{
-  lib,
-  config,
-  ...
-}: let
+{ lib
+, config
+, ...
+}:
+let
   inherit (config.colorscheme) colors;
-in {
+in
+{
   background = "#${colors.base00}";
   focused = {
     # <colorclass> <border> <background> <text> <indicator> <child_border>

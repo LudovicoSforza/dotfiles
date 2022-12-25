@@ -1,12 +1,13 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
-}: let
+{ pkgs
+, lib
+, config
+, ...
+}:
+let
   inherit (config.colorScheme) colors;
-in {
-  home.packages = [pkgs.libnotify];
+in
+{
+  home.packages = [ pkgs.libnotify ];
   services.dunst = {
     enable = true;
     iconTheme = {

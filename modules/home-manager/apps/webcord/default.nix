@@ -1,9 +1,9 @@
-{
-  pkgs,
-  lib,
-  inputs,
-  ...
-}: let
+{ pkgs
+, lib
+, inputs
+, ...
+}:
+let
   catppuccin = pkgs.fetchFromGitHub {
     owner = "catppuccin";
     repo = "discord";
@@ -11,7 +11,8 @@
     sha256 = "sha256-cWpog52Ft4hqGh8sMWhiLUQp/XXipOPnSTG6LwUAGGA=";
   };
   CatpuccinMocha = "${catppuccin}/themes/mocha.theme.css";
-in {
+in
+{
   imports = [
     inputs.webcord.homeManagerModules.default
   ];

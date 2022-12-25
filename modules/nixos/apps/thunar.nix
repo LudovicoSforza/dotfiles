@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   environment.systemPackages = with pkgs; [
     udisks
     # gnome.gvfs # for gvfs-mount
@@ -8,7 +8,7 @@
   programs = {
     thunar = {
       enable = true;
-      plugins = with pkgs.xfce; [thunar-archive-plugin thunar-volman];
+      plugins = with pkgs.xfce; [ thunar-archive-plugin thunar-volman ];
     };
   };
 

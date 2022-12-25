@@ -1,10 +1,11 @@
-{
-  config,
-  lib,
-  ...
-}: let
+{ config
+, lib
+, ...
+}:
+let
   inherit (config.colorScheme) colors;
-in ''
+in
+''
      * {
      	border: none;
      	border-radius: 6px;

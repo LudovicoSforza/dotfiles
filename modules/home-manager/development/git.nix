@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   programs.git = {
     userEmail = "ludovicopiero@pm.me";
     userName = "Ludovico Piero";
@@ -7,8 +7,8 @@
       signByDefault = true;
     };
     extraConfig = {
-      init = {defaultBranch = "main";};
-      core = {excludesfile = "$NIXOS_CONFIG_DIR/scripts/gitignore";};
+      init = { defaultBranch = "main"; };
+      core = { excludesfile = "$NIXOS_CONFIG_DIR/scripts/gitignore"; };
       #   pull.rebase = false;
       credential.helper = "${
         pkgs.git.override {withLibsecret = true;}

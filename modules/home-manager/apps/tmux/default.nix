@@ -1,7 +1,9 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   inherit (pkgs.tmuxPlugins) mkTmuxPlugin;
   inherit (pkgs) fetchFromGitHub;
-in {
+in
+{
   programs.tmux = {
     enable = true;
     clock24 = true;

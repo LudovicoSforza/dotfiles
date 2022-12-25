@@ -1,9 +1,8 @@
-{
-  inputs,
-  pkgs,
-  lib,
-  config,
-  ...
+{ inputs
+, pkgs
+, lib
+, config
+, ...
 }: {
   home.packages = with pkgs; [
     hyprpaper # For Wallpaper
@@ -65,7 +64,7 @@
   };
 
   # start swayidle as part of hyprland, not sway
-  systemd.user.services.swayidle.Install.WantedBy = lib.mkForce ["hyprland-session.target"];
+  systemd.user.services.swayidle.Install.WantedBy = lib.mkForce [ "hyprland-session.target" ];
 
   wayland.windowManager.hyprland = {
     enable = true;

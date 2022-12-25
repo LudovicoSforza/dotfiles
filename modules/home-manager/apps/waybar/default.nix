@@ -1,9 +1,8 @@
-{
-  pkgs,
-  lib,
-  inputs,
-  config,
-  ...
+{ pkgs
+, lib
+, inputs
+, config
+, ...
 } @ args: {
   home.packages = with pkgs; [
     alsa-utils
@@ -17,7 +16,7 @@
         layer = "bottom";
         height = 30;
 
-        modules-left = ["wlr/workspaces" "tray"];
+        modules-left = [ "wlr/workspaces" "tray" ];
         modules-right = [
           #   "wlr/workspaces"
           #   "tray"

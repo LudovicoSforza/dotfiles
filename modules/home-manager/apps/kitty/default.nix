@@ -1,10 +1,11 @@
-{
-  pkgs,
-  config,
-  ...
-}: let
+{ pkgs
+, config
+, ...
+}:
+let
   inherit (config.colorscheme) colors;
-in {
+in
+{
   programs.kitty = {
     enable = true;
     settings = {

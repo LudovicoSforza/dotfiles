@@ -1,9 +1,9 @@
-{
-  config,
-  inputs,
-  pkgs,
-  ...
-}: let
+{ config
+, inputs
+, pkgs
+, ...
+}:
+let
   catppuccin-mocha = pkgs.fetchFromGitHub {
     owner = "catppuccin";
     repo = "grub";
@@ -11,13 +11,14 @@
     sha256 = "sha256-op6Hu6qpErezhcSzI3D/lOTK+YMXrfvSVZKWx3VHMtk=";
   };
   theme = "${catppuccin-mocha}/src/catppuccin-mocha-grub-theme";
-in {
+in
+{
   boot = {
     extraModulePackages = with config.boot.kernelPackages; [
       v4l2loopback # Virtual Camera for OBS-Studio
     ];
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
-    supportedFilesystems = ["ntfs"];
+    supportedFilesystems = [ "ntfs" ];
     loader = {
       efi = {
         canTouchEfiVariables = true;
@@ -42,9 +43,10 @@ in {
     font = "Lat2-Terminus16";
     keyMap = "us";
 
-    colors = let
-      colorscheme = inputs.nix-colors.colorSchemes.catppuccin;
-    in
+    colors =
+      let
+        colorscheme = inputs.nix-colors.colorSchemes.catppuccin;
+      in
       with colorscheme.colors; [
         base01
         base08

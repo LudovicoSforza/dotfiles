@@ -1,9 +1,8 @@
-{
-  pkgs,
-  lib,
-  inputs,
-  config,
-  ...
+{ pkgs
+, lib
+, inputs
+, config
+, ...
 }:
 with pkgs; [
   {
@@ -11,7 +10,7 @@ with pkgs; [
     auto-format = true;
     language-server = {
       command = "${nodePackages.typescript-language-server}/bin/typescript-language-server";
-      args = ["--stdio"];
+      args = [ "--stdio" ];
     };
     formatter = {
       command = "${nodePackages.prettier}/bin/prettier";
@@ -25,7 +24,7 @@ with pkgs; [
     };
     formatter = {
       command = "${clang-tools}/bin/clang-format";
-      args = ["-i"];
+      args = [ "-i" ];
     };
   }
   {
@@ -47,14 +46,14 @@ with pkgs; [
     auto-format = true;
     language-server = {
       command = "${nodePackages.typescript-language-server}/bin/typescript-language-server";
-      args = ["--stdio"];
+      args = [ "--stdio" ];
     };
   }
   {
     name = "nix";
     auto-format = true;
-    language-server = {command = lib.getExe inputs.nil.packages.${system}.default;};
-    config.nil.formatting.command = ["alejandra" "-q"];
+    language-server = { command = lib.getExe inputs.nil.packages.${system}.default; };
+    config.nil.formatting.command = [ "alejandra" "-q" ];
   }
   {
     name = "rust";

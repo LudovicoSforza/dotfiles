@@ -1,14 +1,13 @@
-{
-  pkgs,
-  config,
-  ...
+{ pkgs
+, config
+, ...
 } @ args: {
   imports = [
     ../../apps/i3status
     ../../apps/picom
   ];
 
-  home.packages = with pkgs; [feh];
+  home.packages = with pkgs; [ feh ];
 
   xsession = {
     enable = true;
@@ -27,13 +26,13 @@
             {
               # Remove titlebar
               command = "border pixel 2";
-              criteria = {class = "^.*";};
+              criteria = { class = "^.*"; };
             }
           ];
           bars = [
             {
               fonts = {
-                names = ["UbuntuMono Nerd Font"];
+                names = [ "UbuntuMono Nerd Font" ];
                 size = 10.0;
               };
               position = "bottom";
@@ -48,7 +47,7 @@
             newWindow = "smart";
           };
           fonts = {
-            names = ["UbuntuMono Nerd Font" "Monospace"];
+            names = [ "UbuntuMono Nerd Font" "Monospace" ];
             size = 11.0;
           };
           modifier = "Mod4";

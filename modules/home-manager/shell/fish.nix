@@ -1,9 +1,8 @@
-{
-  pkgs,
-  lib,
-  ...
+{ pkgs
+, lib
+, ...
 }: {
-  home.packages = with pkgs; [commitizen exa fzf fd bat ripgrep lazygit];
+  home.packages = with pkgs; [ commitizen exa fzf fd bat ripgrep lazygit ];
   programs.fish = {
     enable = true;
     functions = {

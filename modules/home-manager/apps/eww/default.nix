@@ -1,40 +1,31 @@
-{
-  inputs,
-  lib,
-  config,
-  pkgs,
-  ...
-}: {
+{ inputs, lib, config, pkgs, ... }: {
   #https://github.com/fufexan/dotfiles/blob/main/home/programs/eww/default.nix
   programs.eww = {
     enable = true;
     package = inputs.eww.packages.${pkgs.system}.eww-wayland;
     configDir = lib.cleanSourceWith {
-      filter = name: _type: let
-        baseName = baseNameOf (toString name);
-      in
-        !(lib.hasSuffix ".nix" baseName);
+      filter = name: _type:
+        let baseName = baseNameOf (toString name);
+        in !(lib.hasSuffix ".nix" baseName);
       src = lib.cleanSource ./.;
     };
   };
 
-  home.packages = with pkgs; [
-    pamixer
-    brightnessctl
-  ];
+  home.packages = with pkgs; [ pamixer brightnessctl ];
 
   systemd.user.services.eww = {
     Unit = {
       Description = "Eww Daemon";
       # not yet implemented
       # PartOf = ["tray.target"];
-      PartOf = ["graphical-session.target"];
+      PartOf = [ "graphical-session.target" ];
     };
     Service = {
-      ExecStart = "${config.programs.eww.package}/bin/eww daemon --no-daemonize";
+      ExecStart =
+        "${config.programs.eww.package}/bin/eww daemon --no-daemonize";
       Restart = "on-failure";
     };
-    Install.WantedBy = ["graphical-session.target"];
+    Install.WantedBy = [ "graphical-session.target" ];
   };
   # # configuration
   # home.file.".config/eww/eww.scss".source = ./eww.scss;

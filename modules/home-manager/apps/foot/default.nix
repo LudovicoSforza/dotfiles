@@ -1,11 +1,12 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
-}: let
+{ pkgs
+, lib
+, config
+, ...
+}:
+let
   inherit (config.colorScheme) colors;
-in {
+in
+{
   programs.foot = {
     enable = true;
     settings = {

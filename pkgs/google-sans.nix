@@ -1,8 +1,7 @@
-{
-  pkgs,
-  lib,
-  fetchFromGitHub,
-  ...
+{ pkgs
+, lib
+, fetchFromGitHub
+, ...
 }:
 fetchFromGitHub {
   pname = "Google-Sans-Fonts";

@@ -50,20 +50,9 @@
       :desc "Counsel eshell history" "e h" #'counsel-esh-history
       :desc "Vterm popup toggle" "v t" #'+vterm/toggle)
 
-;; Change formatter for nix files
-;; (use-package! lsp-mode
-;;   :config
-;;   (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\.terragrunt-cache\\'")
-;;   (add-to-list 'lsp-language-id-configuration '(nix-mode . "nix"))
-;;   (lsp-register-client
-;;    (make-lsp-client :new-connection (lsp-stdio-connection '("nil"))
-;;                     :major-modes '(nix-mode)
-;;                     :server-id 'nix)))
-;; (after! nix-mode
-;;   (set-formatter! 'alejandra "alejandra --quiet" :modes '(nix-mode))
-;;   (map! :leader
-;;         :map nix-mode-map
-;;         :desc "nix-format-buffer" "f p" #'+format/buffer))
+;; Nix
+;; (setq-hook! 'nix-mode-hook +format-with 'nixpkgs-fmt)
+(set-formatter! 'nixpkgs-fmt "nixpkgs-fmt" :modes 'nix-mode)
 
 ;; Change rust lsp server
 (use-package! rustic

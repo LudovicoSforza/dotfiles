@@ -1,7 +1,6 @@
-{
-  pkgs,
-  inputs,
-  ...
+{ pkgs
+, inputs
+, ...
 }: {
   # Remove sound.enable or turn it off if you had it set previously, it seems to cause conflicts with pipewire
   sound.enable = false;
@@ -9,7 +8,7 @@
     pulseaudio.enable = false;
     bluetooth.enable = true;
   };
-  environment.pathsToLink = ["/share/fish"];
+  environment.pathsToLink = [ "/share/fish" ];
 
   xdg.portal = {
     enable = true;
@@ -69,9 +68,9 @@
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {
       description = "polkit-gnome-authentication-agent-1";
-      wants = ["graphical-session.target"];
-      wantedBy = ["graphical-session.target"];
-      after = ["graphical-session.target"];
+      wants = [ "graphical-session.target" ];
+      wantedBy = [ "graphical-session.target" ];
+      after = [ "graphical-session.target" ];
       serviceConfig = {
         Type = "simple";
         ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
@@ -84,8 +83,8 @@
 
   services = {
     # needed for GNOME services outside of GNOME Desktop
-    dbus.packages = [pkgs.gcr];
-    udev.packages = with pkgs; [gnome.gnome-settings-daemon];
+    dbus.packages = [ pkgs.gcr ];
+    udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 
     # TLP For Laptop
     tlp.enable = true;

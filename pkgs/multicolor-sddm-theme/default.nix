@@ -1,8 +1,7 @@
-{
-  stdenv,
-  lib,
-  fetchFromGitLab,
-  ...
+{ stdenv
+, lib
+, fetchFromGitLab
+, ...
 }:
 stdenv.mkDerivation {
   name = "multicolor-sddm-theme";
@@ -20,7 +19,7 @@ stdenv.mkDerivation {
 
   meta = with lib; {
     license = licenses.gpl3;
-    maintainers = with maintainers; [ludovicosforza];
+    maintainers = with maintainers; [ ludovicosforza ];
     homepage = "https://gitlab.com/dwt1/multicolor-sddm-theme";
     description = "yes";
   };

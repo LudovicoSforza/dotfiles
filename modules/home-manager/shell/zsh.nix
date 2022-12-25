@@ -1,5 +1,5 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [commitizen exa fzf fd bat ripgrep lazygit];
+{ pkgs, ... }: {
+  home.packages = with pkgs; [ commitizen exa fzf fd bat ripgrep lazygit ];
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -13,7 +13,7 @@
     };
     dotDir = ".config/zsh";
     history = {
-      ignorePatterns = ["rm *" "pkill *"];
+      ignorePatterns = [ "rm *" "pkill *" ];
     };
     initExtraFirst = ''
       eval "$(starship init zsh)"

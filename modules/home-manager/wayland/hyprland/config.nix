@@ -1,10 +1,11 @@
-{
-  pkgs,
-  config,
-  ...
-}: let
+{ pkgs
+, config
+, ...
+}:
+let
   inherit (config.colorscheme) colors;
-in {
+in
+{
   wayland.windowManager.hyprland.extraConfig = ''
     #        name  , resolution  ,offset , scale
     monitor = eDP-1, 1366x768@60 , 0x0   , 1
