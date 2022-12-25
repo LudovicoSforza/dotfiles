@@ -52,7 +52,10 @@
 
 ;; Nix
 ;; (setq-hook! 'nix-mode-hook +format-with 'nixpkgs-fmt)
-(set-formatter! 'nixpkgs-fmt "nixpkgs-fmt" :modes 'nix-mode)
+;; (set-formatter! 'nixpkgs-fmt "nixpkgs-fmt" :modes 'nix-mode)
+(after! nix-mode
+  (set-formatter! 'nixpkgs-fmt "nixpkgs-fmt" :modes '(nix-mode))
+  (puthash 'nixpkgs-fmt "nixpkgs-fmt" format-all--executable-table))
 
 ;; Change rust lsp server
 (use-package! rustic
