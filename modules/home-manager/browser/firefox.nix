@@ -6,8 +6,6 @@
       sponsorblock
       bitwarden
       fastforward
-      darkreader
-      enhanced-github
     ];
     profiles.ludovico = {
       id = 0;
@@ -26,8 +24,8 @@
               url = "https://kickassanime.ro";
             }
             {
-              name = "ANIMIXPLAY";
-              url = "https://animixplay.to";
+              name = "9Anime";
+              url = "https://9anime.gs";
             }
           ];
         }
@@ -77,7 +75,6 @@
             icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
             definedAliases = [ "@np" ];
           };
-
           "Home-Manager" = {
             urls = [
               {
