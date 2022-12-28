@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   programs.firefox = {
     enable = true;
     extensions = with pkgs.nur.repos.rycee.firefox-addons; [
@@ -75,7 +75,7 @@
             ];
 
             icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-            definedAliases = ["@np"];
+            definedAliases = [ "@np" ];
           };
 
           "Home-Manager" = {
@@ -84,7 +84,7 @@
                 template = "https://rycee.gitlab.io/home-manager/options.html";
               }
             ];
-            definedAliases = ["@hm"];
+            definedAliases = [ "@hm" ];
           };
           "NixOS Options" = {
             urls = [
@@ -108,7 +108,7 @@
             ];
 
             icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-            definedAliases = ["@no"];
+            definedAliases = [ "@no" ];
           };
 
           "NixOS Wiki" = {
@@ -118,7 +118,7 @@
               }
             ];
             icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-            definedAliases = ["@nw"];
+            definedAliases = [ "@nw" ];
           };
         };
       };
