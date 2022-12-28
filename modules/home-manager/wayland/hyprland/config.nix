@@ -120,25 +120,26 @@ in
     $discord = discordcanary $discordOption
     $webcord = webcord $discordOption
     $powermenu = $HYPR_FOLDER/scripts/powermenu
+    $bemenu = $HYPR_FOLDER/scripts/bemenu
 
     # Binds Keyboard
-    bind = SUPERSHIFT , Return , exec , foot -L tmux
-    bind = SUPER , G , exec , chromium
     bind = SUPER , C , exit ,
     bind = SUPER , D , exec , $discord
     bind = SUPERSHIFT , D , exec , $webcord
     bind = SUPERSHIFT , E , exec , [float] thunar
     bind = SUPER , E , exec , emacsclient -c -a 'nvim'
     bind = SUPER , F , fullscreen , 0
-    bind = SUPERSHIFT, G , exec , ${pkgs.firefox}/bin/firefox
+    bind = SUPERSHIFT , G , exec , chromium
+    bind = SUPER, G , exec , ${pkgs.firefox}/bin/firefox
     bind = SUPER , M , exec , [workspace 5 silent;tile] mailspring
-    bind = SUPER , P , exec , wofi
+    bind = SUPER , P , exec , $bemenu
     bind = SUPER , Q , exec , ${pkgs.hyprpicker}/bin/hyprpicker -f hex --autocopy
     bind = SUPER , T , togglefloating ,
     bind = SUPER , S , exec , [workspace 5 silent;tile] spotify
     bind = SUPER , W , killactive ,
     bind = SUPER , X , exec , $powermenu
     bind = SUPER , Return , exec , ${pkgs.kitty}/bin/kitty
+    bind = SUPERSHIFT , Return , exec , foot
     bind = CTRL  , Return , exec , ${pkgs.wezterm}/bin/wezterm
 
     # Binds Mouse
@@ -146,7 +147,7 @@ in
     bindm = SUPER , mouse:273 , resizewindow
 
     # Screenshot
-    bind = CTRL , Print , exec , grimblast --notify copysave area
+    bind = CTRL , Print , exec , grimblast --notify copy area
     bind = SUPER , Print , exec , grimblast --notify --cursor copysave output
 
     bind = SUPER , h , resizeactive , -20 0
