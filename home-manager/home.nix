@@ -24,7 +24,6 @@ in
     outputs.homeManagerModules.kitty
     outputs.homeManagerModules.foot
     outputs.homeManagerModules.wezterm
-    outputs.homeManagerModules.dunst
     outputs.homeManagerModules.wofi
     outputs.homeManagerModules.ranger
     outputs.homeManagerModules.tmux

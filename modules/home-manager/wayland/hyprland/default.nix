@@ -28,6 +28,7 @@
     # ../apps/mako
     ../../apps/waybar
     ../../apps/gammastep
+    ../../apps/dunst
     # ../../apps/eww
     ./config.nix
   ];

@@ -1,10 +1,11 @@
-{
-  pkgs,
-  config,
-  ...
-}: let
+{ pkgs
+, config
+, ...
+}:
+let
   inherit (config.colorscheme) colors;
-in {
+in
+{
   wayland.windowManager.hyprland.extraConfig = ''
     #        name  , resolution  ,offset , scale
     monitor = eDP-1, 1366x768@60 , 0x0   , 1
@@ -26,8 +27,8 @@ in {
         gaps_in = 2
         gaps_out = 2
         border_size = 2
-    	   col.active_border = rgb(${colors.base0D})
-    	   col.inactive_border = rgb(${colors.base00})
+        col.active_border = rgb(${colors.base0D})
+        col.inactive_border = rgb(${colors.base00})
         layout = dwindle
     }
 
