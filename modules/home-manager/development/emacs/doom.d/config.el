@@ -24,7 +24,7 @@
 (setq vc-follow-symlinks t) ;; Always follow symlinks.
 
 ;; enable beacon here
-(beacon-mode 0)
+;; (beacon-mode 0)
 
 ;; Set rust lsp server
 (setq lsp-rust-server 'rust-analyzer)
