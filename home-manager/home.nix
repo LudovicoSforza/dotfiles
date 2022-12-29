@@ -5,8 +5,13 @@
 , lib
 , config
 , pkgs
+, nix-colors
 , ...
-}: {
+}:
+let
+  nix-colors-lib = nix-colors.lib-contrib { inherit pkgs; };
+in
+{
   # You can import other home-manager modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
@@ -87,6 +92,10 @@
 
   # Set nix-colors Colorscheme
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin;
+  # colorScheme = nix-colors-lib.colorSchemeFromPicture {
+  #   path = ./wall.png;
+  #   kind = "dark";
+  # };
 
   home = {
     username = "ludovico";
