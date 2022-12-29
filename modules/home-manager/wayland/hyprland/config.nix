@@ -23,7 +23,6 @@ in {
 
     general {
         sensitivity = 1
-        main_mod = SUPER
         gaps_in = 2
         gaps_out = 2
         border_size = 2
