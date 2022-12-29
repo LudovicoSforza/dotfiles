@@ -73,7 +73,6 @@
   (doom-modeline-modal-icon nil))
 
 ;; Discord Presence
-(require 'elcord)
-(setq elcord-quiet t)
-
-(add-hook 'after-init-hook 'elcord-mode)
+;; (require 'elcord)
+;; (setq elcord-quiet t)
+;; (add-hook 'after-init-hook 'elcord-mode)
