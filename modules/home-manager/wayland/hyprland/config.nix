@@ -1,11 +1,10 @@
-{ pkgs
-, config
-, ...
-}:
-let
-  inherit (config.colorscheme) colors;
-in
 {
+  pkgs,
+  config,
+  ...
+}: let
+  inherit (config.colorscheme) colors;
+in {
   wayland.windowManager.hyprland.extraConfig = ''
     #        name  , resolution  ,offset , scale
     monitor = eDP-1, 1366x768@60 , 0x0   , 1
@@ -189,12 +188,12 @@ in
     bind = , XF86AudioPlay , exec , ${pkgs.playerctl}/bin/playerctl play-pause
     bind = , XF86AudioPause , exec , ${pkgs.playerctl}/bin/playerctl pause
     bind = , XF86AudioStop , exec , ${pkgs.playerctl}/bin/playerctl stop
-    bind = , XF86AudioRaiseVolume , exec , ${pkgs.alsa-utils}/bin/amixer -q set Master 5%+
-    bind = , XF86AudioLowerVolume , exec , ${pkgs.alsa-utils}/bin/amixer -q set Master 5%-
+    binde = , XF86AudioRaiseVolume , exec , ${pkgs.alsa-utils}/bin/amixer -q set Master 5%+
+    binde = , XF86AudioLowerVolume , exec , ${pkgs.alsa-utils}/bin/amixer -q set Master 5%-
 
     # Brightness Keys
-    bind = , XF86MonBrightnessUp , exec , ${pkgs.brightnessctl}/bin/brightnessctl set 5%+
-    bind = , XF86MonBrightnessDown , exec , ${pkgs.brightnessctl}/bin/brightnessctl set 5%-
+    binde = , XF86MonBrightnessUp , exec , ${pkgs.brightnessctl}/bin/brightnessctl set 5%+
+    binde = , XF86MonBrightnessDown , exec , ${pkgs.brightnessctl}/bin/brightnessctl set 5%-
 
     exec-once = ${pkgs.waybar}/bin/waybar
     # exec-once = eww open bar
