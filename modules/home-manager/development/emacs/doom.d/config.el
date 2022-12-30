@@ -14,13 +14,14 @@
   '(font-lock-keyword-face :slant italic))
 
 ;; Enables Nixos-installed packages to be loaded (require 'package)
-(setq package-enable-at-startup nil) (package-initialize)
+(setq package-enable-at-startup nil) 
+(package-initialize)
 
 ;; Set location of custom.el
 ;; (setq custom-file "~/.emacs.d/custom.el")
 
 ;; enable word-wrap (almost) everywhere
-(+global-word-wrap-mode +1)
+(setq global-word-wrap-mode +1)
 
 ;; Always follow symlinks.
 (setq vc-follow-symlinks t)
