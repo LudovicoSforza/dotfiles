@@ -1,9 +1,9 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   users.users.ludovico = {
     isNormalUser = true;
     description = "ludovico";
-    extraGroups = [ "storage" "input" "wheel" "video" "audio" "seat" "libvirtd" "networkmanager" ];
-    shell = pkgs.fish;
+    extraGroups = ["storage" "input" "wheel" "video" "audio" "seat" "libvirtd" "networkmanager"];
+    shell = pkgs.zsh;
   };
 
   systemd = {
@@ -18,7 +18,7 @@
           Restart = "always";
           RestartSec = "1";
         };
-        wantedBy = [ "multi-user.target" ];
+        wantedBy = ["multi-user.target"];
       };
     };
   };

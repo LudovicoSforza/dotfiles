@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
-  home.packages = with pkgs; [ commitizen exa fzf fd bat ripgrep lazygit ];
+{pkgs, ...}: {
+  home.packages = with pkgs; [commitizen exa fzf fd bat ripgrep lazygit];
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -13,15 +13,19 @@
     };
     dotDir = ".config/zsh";
     history = {
-      ignorePatterns = [ "rm *" "pkill *" ];
+      ignorePatterns = ["rm *" "pkill *"];
     };
     initExtraFirst = ''
       eval "$(starship init zsh)"
     '';
     initExtra = ''
-      ## case insensitive path-completion
-      zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-      zstyle ':completion:*' menu select
+            ## case insensitive path-completion
+            zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+            zstyle ':completion:*' menu select
+
+      function run() {
+                    nix run nixpkgs#$@
+      }
     '';
     shellAliases = {
       "bs" = "doas nixos-rebuild switch --flake ~/.config/nixos";
@@ -46,24 +50,21 @@
       "..." = "cd ../..";
       ".." = "cd ..";
     };
-    plugins = [
+    sessionVariables = {
+      LC_ALL = "en_US.UTF-8";
+      ZSH_AUTOSUGGEST_USE_ASYNC = "true";
+      SSH_AUTH_SOCK = "/run/user/1000/keyring/ssh";
+    };
+    plugins = with pkgs; [
       {
-        name = "z";
-        src = pkgs.fetchFromGitHub {
-          owner = "jethrokuan";
-          repo = "z";
-          rev = "85f863f20f24faf675827fb00f3a4e15c7838d76";
-          sha256 = "1kaa0k9d535jnvy8vnyxd869jgs0ky6yg55ac1mxcxm8n0rh2mgq";
-        };
+        name = "zsh-nix-shell";
+        src = zsh-nix-shell;
+        file = "share/zsh-nix-shell/nix-shell.plugin.zsh";
       }
       {
-        name = "fzf";
-        src = pkgs.fetchFromGitHub {
-          owner = "PatrickF1";
-          repo = "fzf.fish";
-          rev = "096dc8fff16cfbf54333fb7a9910758e818e239d";
-          sha256 = "183z8f7y8629nc78bc3gm5xgwyn813qvjrws4bx8vda2jchxzlb5";
-        };
+        name = "z";
+        src = zsh-z;
+        file = "share/zsh-z/zsh-z.plugin.zsh";
       }
     ];
   };
