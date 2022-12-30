@@ -38,7 +38,7 @@
 
 (setq org-directory "~/Documents/org/")
 
-(setq shell-file-name "/home/ludovico/.nix-profile/bin/fish"
+(setq shell-file-name "/home/ludovico/.nix-profile/bin/zsh"
       vterm-max-scrollback 5000)
 (setq shell-history-size 5000
       eshell-buffer-maximum-lines 5000
