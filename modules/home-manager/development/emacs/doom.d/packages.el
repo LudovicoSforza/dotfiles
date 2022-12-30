@@ -49,5 +49,5 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
-;; (package! elcord)
-;; (package! beacon)
+;; UI improvements for Org mode
+(package! org-modern)

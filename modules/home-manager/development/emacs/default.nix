@@ -1,5 +1,13 @@
-{ pkgs, lib, ... }: {
-  home.packages = with pkgs; [ rnix-lsp nixpkgs-fmt ];
+{ pkgs
+, lib
+, sources
+, ...
+}: {
+  home.packages = with pkgs; [
+    rnix-lsp
+    nixpkgs-fmt
+  ];
+
   programs.doom-emacs = {
     enable = true;
     doomPrivateDir = ./doom.d;

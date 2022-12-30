@@ -13,7 +13,14 @@
   '(font-lock-comment-face :slant italic)
   '(font-lock-keyword-face :slant italic))
 
-;; Enables Nixos-installed packages to be loaded (require 'package)
+;; Default spelling dictionary is English
+(setq ispell-dictionary "english")
+
+;; Get system notifications through libnotify
+(setq alert-default-style 'libnotify)
+
+;; Enables Nixos-installed packages to be loaded
+(require 'package)
 (setq package-enable-at-startup nil) 
 (package-initialize)
 
@@ -75,7 +82,3 @@
   :custom
   (doom-modeline-modal-icon nil))
 
-;; Discord Presence
-;; (require 'elcord)
-;; (setq elcord-quiet t)
-;; (add-hook 'after-init-hook 'elcord-mode)
