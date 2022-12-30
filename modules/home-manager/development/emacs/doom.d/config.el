@@ -3,9 +3,9 @@
 (setq user-full-name "Ludovico Piero"
       user-mail-address "ludovicopiero@pm.me")
 
-(setq doom-font (font-spec :family "FiraCode Nerd Font" :size 16)
-      doom-variable-pitch-font (font-spec :family "FiraCode Nerd Font" :size 16)
-      doom-big-font (font-spec :family "FiraCode Nerd Font" :size 24))
+(setq doom-font (font-spec :family "FiraCode Nerd Font" :size 15)
+      doom-variable-pitch-font (font-spec :family "FiraCode Nerd Font" :size 15)
+      doom-big-font (font-spec :family "FiraCode Nerd Font" :size 18))
 (after! doom-themes
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t))
@@ -30,7 +30,10 @@
 (setq lsp-rust-server 'rust-analyzer)
 
 ;; Set Doom theme
-(setq doom-theme 'doom-palenight)
+(setq doom-theme 'doom-ayu-dark)
+(setq doom-themes-treemacs-config "doom-colors")
+(with-eval-after-load 'doom-themes
+  (doom-themes-treemacs-config))
 
 (setq display-line-numbers-type 'relative)
 
@@ -51,8 +54,8 @@
       :desc "Vterm popup toggle" "v t" #'+vterm/toggle)
 
 ;; Nix
-;; (setq-hook! 'nix-mode-hook +format-with 'nixpkgs-fmt)
-;; (set-formatter! 'nixpkgs-fmt "nixpkgs-fmt" :modes 'nix-mode)
+(setq-hook! 'nix-mode-hook +format-with 'nixpkgs-fmt)
+(set-formatter! 'nixpkgs-fmt "nixpkgs-fmt" :modes 'nix-mode)
 (after! nix-mode
   (set-formatter! 'nixpkgs-fmt "nixpkgs-fmt" :modes '(nix-mode))
   (puthash 'nixpkgs-fmt "nixpkgs-fmt" format-all--executable-table))
