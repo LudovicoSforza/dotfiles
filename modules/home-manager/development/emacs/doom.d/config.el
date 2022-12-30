@@ -3,8 +3,8 @@
 (setq user-full-name "Ludovico Piero"
       user-mail-address "ludovicopiero@pm.me")
 
-(setq doom-font (font-spec :family "UbuntuMono Nerd Font" :size 15)
-      doom-variable-pitch-font (font-spec :family "UbuntuMono Nerd Font" :size 15)
+(setq doom-font (font-spec :family "UbuntuMono Nerd Font" :size 16)
+      doom-variable-pitch-font (font-spec :family "UbuntuMono Nerd Font" :size 16)
       doom-big-font (font-spec :family "UbuntuMono Nerd Font" :size 24))
 (after! doom-themes
   (setq doom-themes-enable-bold t
@@ -13,15 +13,17 @@
   '(font-lock-comment-face :slant italic)
   '(font-lock-keyword-face :slant italic))
 
-;; Enables Nixos-installed packages to be loaded
-(require 'package)
-(setq package-enable-at-startup nil)
-(package-initialize)
+;; Enables Nixos-installed packages to be loaded (require 'package)
+(setq package-enable-at-startup nil) (package-initialize)
 
 ;; Set location of custom.el
-(setq custom-file "~/.emacs.d/custom.el")
+;; (setq custom-file "~/.emacs.d/custom.el")
 
-(setq vc-follow-symlinks t) ;; Always follow symlinks.
+;; enable word-wrap (almost) everywhere
+(+global-word-wrap-mode +1)
+
+;; Always follow symlinks.
+(setq vc-follow-symlinks t)
 
 ;; enable beacon here
 ;; (beacon-mode 0)
