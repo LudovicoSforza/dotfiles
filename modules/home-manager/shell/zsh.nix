@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [commitizen exa fzf fd bat ripgrep lazygit];
+  programs.nix-index.enable = true;
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -13,6 +14,7 @@
     };
     dotDir = ".config/zsh";
     history = {
+      size = 5000;
       ignorePatterns = ["rm *" "pkill *"];
     };
     initExtraFirst = ''
@@ -65,6 +67,16 @@
         name = "z";
         src = zsh-z;
         file = "share/zsh-z/zsh-z.plugin.zsh";
+      }
+      {
+        name = "zsh-history-substring-search";
+        file = "zsh-history-substring-search.plugin.zsh";
+        src = fetchFromGitHub {
+          owner = "zsh-users";
+          repo = "zsh-history-substring-search";
+          rev = "0f80b8eb3368b46e5e573c1d91ae69eb095db3fb";
+          sha256 = "0y8va5kc2ram38hbk2cibkk64ffrabfv1sh4xm7pjspsba9n5p1y";
+        };
       }
     ];
   };

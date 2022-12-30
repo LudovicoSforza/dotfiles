@@ -3,6 +3,7 @@
 , ...
 }: {
   home.packages = with pkgs; [ commitizen exa fzf fd bat ripgrep lazygit ];
+  programs.nix-index.enable = true;
   programs.fish = {
     enable = true;
     functions = {
