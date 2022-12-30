@@ -17,6 +17,7 @@
     outputs.nixosModules.thunar
     outputs.nixosModules.fonts
     outputs.nixosModules.user
+    outputs.nixosModules.virtualization
 
     # Or modules from other flakes (such as nixos-hardware):
     inputs.hardware.nixosModules.common-cpu-amd
