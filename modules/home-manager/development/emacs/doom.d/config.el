@@ -3,9 +3,9 @@
 (setq user-full-name "Ludovico Piero"
       user-mail-address "ludovicopiero@pm.me")
 
-(setq doom-font (font-spec :family "UbuntuMono Nerd Font" :size 16)
-      doom-variable-pitch-font (font-spec :family "UbuntuMono Nerd Font" :size 16)
-      doom-big-font (font-spec :family "UbuntuMono Nerd Font" :size 24))
+(setq doom-font (font-spec :family "FiraCode Nerd Font" :size 16)
+      doom-variable-pitch-font (font-spec :family "FiraCode Nerd Font" :size 16)
+      doom-big-font (font-spec :family "FiraCode Nerd Font" :size 24))
 (after! doom-themes
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t))
@@ -19,9 +19,6 @@
 
 ;; Set location of custom.el
 ;; (setq custom-file "~/.emacs.d/custom.el")
-
-;; enable word-wrap (almost) everywhere
-(setq global-word-wrap-mode +1)
 
 ;; Always follow symlinks.
 (setq vc-follow-symlinks t)

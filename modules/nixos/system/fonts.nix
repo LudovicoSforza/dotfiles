@@ -6,6 +6,7 @@
       # Icons
       material-icons
       material-design-icons
+      fira-code-symbols
 
       google-sans
       noto-fonts
