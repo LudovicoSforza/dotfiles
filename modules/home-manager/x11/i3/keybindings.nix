@@ -3,7 +3,7 @@
 , ...
 }:
 let
-  modifier = config.xsession.windowManager.i3.config.modifier;
+  inherit (config.xsessions.windowManager.i3.config) modifier;
 in
 {
   "${modifier}+Return" = "exec ${pkgs.kitty}/bin/kitty";
