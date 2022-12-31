@@ -27,8 +27,8 @@ in
         gaps_in = 2
         gaps_out = 2
         border_size = 2
-        col.active_border = rgb(${colors.base0D})
-        col.inactive_border = rgb(${colors.base00})
+        col.active_border = rgb(${colors.base0D}) rgb(${colors.base0E}) 270deg
+        col.inactive_border = rgb(${colors.base00}) rgb(${colors.base01}) 270deg
         layout = dwindle
     }
 
@@ -45,7 +45,6 @@ in
         blur_size = 8
         blur_passes = 2
         blur_new_optimizations = true
-
         drop_shadow = false
         shadow_range = 5
         col.shadow = rgb(eba0ac)
@@ -55,9 +54,7 @@ in
 
     animations {
         enabled = 1
-
         bezier = customBezier , 0.79 , 0.33 , 0.14 , 0.53
-
         animation = windows , 1 , 3 , customBezier
         animation = border , 1 , 2 , default
         animation = fade , 1 , 2 , default
@@ -79,9 +76,6 @@ in
 
     # window rules
     windowrule = float , Steam
-    #windowrule = float , ^(kitty)$
-    #windowrule = center , ^(kitty)$
-    windowrule = animation slidedown , rofi
     windowrule = workspace 4 , Steam
     windowrule = workspace 4 , lutris
     windowrule = workspace 3 , discord
@@ -93,22 +87,19 @@ in
     windowrule = workspace 1 , jetbrains-goland
 
     # v2
-    windowrulev2 = tile, class:^(Spotify)$
+    windowrulev2 = workspace 3, title:^(WebCord)$
+    windowrulev2 = workspace 5 , class:^(Spotify)$
+    windowrulev2 = workspace 1 , class:^(jetbrains-clion)$
     windowrulev2 = noblur, class:^(waybar)$
     windowrulev2 = noblur, class:^(firefox)$
     windowrulev2 = noblur, class:^(chromium-browser)$
     windowrulev2 = noblur, class:^(discord)$
     windowrulev2 = noblur, title:^(WebCord)$
-    windowrulev2 = workspace 3, title:^(WebCord)$
     windowrulev2 = noblur, title:^(Open File)$
     windowrulev2 = noshadow, class:^(waybar)$
     windowrulev2 = noshadow, class:^(firefox)$
     windowrulev2 = noshadow, class:^(chromium-browser)$
     windowrulev2 = noshadow, class:^(discord)$
-    windowrulev2 = workspace 5 , class:^(Spotify)$
-    windowrulev2 = workspace 1 , class:^(jetbrains-clion)$
-    windowrulev2 = opacity 0.95 , class:^(Code)$ # VSCODE
-    windowrulev2 = rounding 0 , class:^(Code)$ # VSCODE
 
     # Variables
     $discordOption = --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-accelerated-mjpeg-decode --enable-accelerated-video --ignore-gpu-blacklist --enable-native-gpu-memory- buffers --enable-gpu-rasterization --enable-gpu --enable-features=WebRTCPipeWireCapturer
@@ -136,9 +127,9 @@ in
     bind = SUPER , S , exec , [workspace 5 silent;tile] spotify
     bind = SUPER , W , killactive ,
     bind = SUPER , X , exec , $powermenu
-    bind = SUPER , Return , exec , ${pkgs.kitty}/bin/kitty
+    bind = CTRL , Return , exec , ${pkgs.kitty}/bin/kitty
     bind = SUPERSHIFT , Return , exec , foot
-    bind = CTRL  , Return , exec , ${pkgs.wezterm}/bin/wezterm
+    bind = SUPER  , Return , exec , ${pkgs.wezterm}/bin/wezterm
 
     # Binds Mouse
     bindm = SUPER , mouse:272 , movewindow
