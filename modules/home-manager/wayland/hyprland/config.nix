@@ -17,8 +17,8 @@ in
         repeat_rate = 50
         repeat_delay = 300
         touchpad {
-        	natural_scroll = 1
-    		disable_while_typing = 1
+            natural_scroll = 1
+            disable_while_typing = 1
         }
     }
 
@@ -32,9 +32,11 @@ in
         layout = dwindle
     }
 
-    master {
-        new_is_master = true
-        new_on_top = true
+    dwindle {
+         col.group_border_active = rgb(${colors.base0B})
+         col.group_border = rgb(${colors.base00})
+         force_split = 2 # new = right or bottom
+         pseudotile = 0 # enable pseudotiling on dwindle
     }
 
     decoration {
@@ -69,12 +71,6 @@ in
         disable_autoreload = false
         enable_swallow = 1
         swallow_regex = ^(kitty)$
-    }
-
-    dwindle {
-         col.group_border_active = rgb(${colors.base0B})
-         col.group_border = rgb(${colors.base00})
-        pseudotile = 0 # enable pseudotiling on dwindle
     }
 
     gestures {
@@ -134,6 +130,9 @@ in
     bind = SUPER , P , exec , $bemenu
     bind = SUPER , Q , exec , ${pkgs.hyprpicker}/bin/hyprpicker -f hex --autocopy
     bind = SUPER , T , togglefloating ,
+    bind = SUPER , R , togglegroup ,
+    bind = SUPERSHIFT, J , changegroupactive, f
+    bind = SUPERSHIFT, K , changegroupactive, b
     bind = SUPER , S , exec , [workspace 5 silent;tile] spotify
     bind = SUPER , W , killactive ,
     bind = SUPER , X , exec , $powermenu
@@ -155,10 +154,10 @@ in
     bind = SUPER , j , movefocus , d
     # bind = ALT , Return , layoutmsg , swapwithmaster
 
-    bind = SUPERSHIFT , h , movewindow , l
-    bind = SUPERSHIFT , l , movewindow , r
-    bind = SUPERSHIFT , k , movewindow , u
-    bind = SUPERSHIFT , j , movewindow , d
+    bind = SUPER , left , movewindow , l
+    bind = SUPER , right , movewindow , r
+    bind = SUPER , up , movewindow , u
+    bind = SUPER , down , movewindow , d
 
     bind = SUPER , 1 , workspace , 1
     bind = SUPER , 2 , workspace , 2
