@@ -18,20 +18,17 @@
 
         modules-left = [ "wlr/workspaces" "tray" ];
         modules-right = [
-          #   "wlr/workspaces"
-          #   "tray"
           "network"
           "wireplumber"
-          # "custom/weather"
           "battery"
           "custom/date"
           "clock"
         ];
         "wireplumber" = {
           "format" = "{icon} {volume}%";
-          "format-muted" = "";
+          "format-muted" = "婢";
           "on-click" = "amixer -q set Master toggle-mute";
-          "format-icons" = [ "" "" "" ];
+          "format-icons" = [ "奄" "墳" "墳" ];
         };
         "wlr/workspaces" = {
           on-click = "activate";
@@ -63,15 +60,6 @@
           format-linked = "{ifname} (No IP)";
           format-disconnected = "  Disconnected";
           tooltip-format-wifi = "Signal Strenght: {signalStrength}% | Down Speed: {bandwidthDownBits}, Up Speed: {bandwidthUpBits}";
-        };
-        "custom/weather" = {
-          "format" = "{}";
-          "format-alt" = "{alt}: {}";
-          "format-alt-click" = "click-right";
-          "interval" = 1800;
-          "return-type" = "json";
-          "exec" = "~/.config/hypr/scripts/weather.sh";
-          "exec-if" = "ping wttr.in -c1";
         };
         "battery" = {
           bat = "BAT1";
