@@ -13,7 +13,7 @@
       mainBar = {
         position = "top";
         monitor = "eDP-1";
-        layer = "bottom";
+        layer = "top";
         height = 30;
 
         modules-left = [ "wlr/workspaces" "tray" ];
@@ -21,13 +21,18 @@
           #   "wlr/workspaces"
           #   "tray"
           "network"
+          "wireplumber"
           # "custom/weather"
-          "pulseaudio"
           "battery"
           "custom/date"
           "clock"
         ];
-
+        "wireplumber" = {
+          "format" = "{icon} {volume}%";
+          "format-muted" = "";
+          "on-click" = "amixer -q set Master toggle-mute";
+          "format-icons" = [ "" "" "" ];
+        };
         "wlr/workspaces" = {
           on-click = "activate";
           active-only = false;
@@ -67,15 +72,6 @@
           "return-type" = "json";
           "exec" = "~/.config/hypr/scripts/weather.sh";
           "exec-if" = "ping wttr.in -c1";
-        };
-        "pulseaudio" = {
-          format = "{icon} {volume}%";
-          on-click = "amixer -q set Master toggle-mute";
-          format-muted = "󰖁 Muted";
-          format-icons = {
-            "headphone" = " ";
-            "default" = " ";
-          };
         };
         "battery" = {
           bat = "BAT1";
