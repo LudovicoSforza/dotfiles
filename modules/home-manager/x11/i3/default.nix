@@ -32,7 +32,7 @@
           bars = [
             {
               fonts = {
-                names = [ "UbuntuMono Nerd Font" ];
+                names = [ "Iosevka Nerd Font" ];
                 size = 10.0;
               };
               position = "bottom";
@@ -47,11 +47,11 @@
             newWindow = "smart";
           };
           fonts = {
-            names = [ "UbuntuMono Nerd Font" "Monospace" ];
+            names = [ "Iosevka Nerd Font" "Monospace" ];
             size = 11.0;
           };
           modifier = "Mod4";
-          terminal = "kitty";
+          terminal = "wezterm";
         };
       };
     };
