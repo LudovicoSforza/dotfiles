@@ -102,7 +102,7 @@ return {
     window_frame = {
         font = wezterm.font_with_fallback({
             {
-                family = "FiraCode Nerd Font",
+                family = "Iosevka Nerd Font",
                 weight = "Bold",
                 harfbuzz_features = {
                     "cv01",

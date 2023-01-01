@@ -17,7 +17,7 @@
       liberation_ttf
 
       (nerdfonts.override {
-        fonts = [ "UbuntuMono" "JetBrainsMono" "FiraCode" ];
+        fonts = [ "Iosevka" "UbuntuMono" "JetBrainsMono" ];
       })
     ];
     enableDefaultFonts = false;

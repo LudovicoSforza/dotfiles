@@ -3,9 +3,9 @@
 (setq user-full-name "Ludovico Piero"
       user-mail-address "ludovicopiero@pm.me")
 
-(setq doom-font (font-spec :family "FiraCode Nerd Font" :size 15)
-      doom-variable-pitch-font (font-spec :family "FiraCode Nerd Font" :size 15)
-      doom-big-font (font-spec :family "FiraCode Nerd Font" :size 18))
+(setq doom-font (font-spec :family "Iosevka Nerd Font" :size 15)
+      doom-variable-pitch-font (font-spec :family "Iosevka Nerd Font" :size 15)
+      doom-big-font (font-spec :family "Iosevka Nerd Font" :size 18))
 (after! doom-themes
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t))
@@ -82,3 +82,5 @@
   :custom
   (doom-modeline-modal-icon nil))
 
+;; Treemacs
+(setq treemacs-width 30)

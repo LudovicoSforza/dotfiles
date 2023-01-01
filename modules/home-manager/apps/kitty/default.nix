@@ -9,9 +9,8 @@ in
   programs.kitty = {
     enable = true;
     settings = {
-      font_family = "FiraCode Nerd Font";
+      font_family = "Iosevka Nerd Font";
       font_size = 11;
-      font_features = "FiraCode Nerd Font +cv01 +cv02 +cv12 +ss05 +ss04 +ss03 +cv31 +cv29 +cv24 +cv25 +cv26 +ss07 +zero +onum";
       scrollback_lines = 100;
       window_border_width = "1px";
       confirm_os_window_close = 0;
