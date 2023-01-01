@@ -8,9 +8,10 @@
 , nix-colors
 , ...
 }:
-let
-  nix-colors-lib = nix-colors.lib-contrib { inherit pkgs; };
-in
+# TODO: remove this if you want to use colorscheme from an image
+# let
+#   nix-colors-lib = nix-colors.lib-contrib { inherit pkgs; };
+# in
 {
   # You can import other home-manager modules here
   imports = [
