@@ -88,7 +88,7 @@ in
 
     # v2
     windowrulev2 = workspace 3 , title:^(WebCord)$
-    windowrulev2 = workspace 5 , class:^(Spotify)$
+    windowrulev2 = workspace 5 , class:^(Spotify(y|y-free))$
     windowrulev2 = workspace 1 , class:^(jetbrains-clion)$
     windowrulev2 = float, class:^(discordcanary)$ # Discord File Picker
     windowrulev2 = noblur, class:^(waybar)$
