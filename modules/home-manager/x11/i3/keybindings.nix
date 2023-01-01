@@ -6,7 +6,7 @@ let
   inherit (config.xsession.windowManager.i3.config) modifier;
 in
 {
-  "${modifier}+Return" = "exec ${pkgs.kitty}/bin/kitty";
+  "${modifier}+Return" = "exec ${pkgs.wezterm}/bin/wezterm";
   "${modifier}+p" = "exec ${pkgs.dmenu}/bin/dmenu_run";
 
   # Discord
