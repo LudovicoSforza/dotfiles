@@ -1,5 +1,7 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
+;; TODO: Make doomemacs config look cleaner by separating files.
+
 (setq user-full-name "Ludovico Piero"
       user-mail-address "ludovicopiero@pm.me")
 
@@ -76,6 +78,14 @@
   :config
   (when (featurep 'evil)
     (add-hook! 'rustic-popup-mode-hook #'evil-emacs-state)))
+
+;; Change doomemacs cursor
+(setq evil-normal-state-cursor 'block
+      evil-visual-state-cursor 'block
+      evil-insert-state-cursor 'block
+      evil-motion-state-cursor 'block
+      evil-replace-state-cursor 'block
+      evil-operator-state-cursor 'block)
 
 ;; Treemacs
 (setq treemacs-width 30)
