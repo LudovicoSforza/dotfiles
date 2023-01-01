@@ -3,15 +3,12 @@
 (setq user-full-name "Ludovico Piero"
       user-mail-address "ludovicopiero@pm.me")
 
-(setq doom-font (font-spec :family "Iosevka Nerd Font" :size 15)
-      doom-variable-pitch-font (font-spec :family "Iosevka Nerd Font" :size 15)
-      doom-big-font (font-spec :family "Iosevka Nerd Font" :size 18))
+(setq doom-font (font-spec :family "Iosevka Nerd Font" :size 15 :weight 'medium :slant 'normal)
+      doom-variable-pitch-font (font-spec :family "Iosevka Nerd Font" :size 15 :weight 'medium :slant 'normal)
+      doom-big-font (font-spec :family "Iosevka Nerd Font" :size 20))
 (after! doom-themes
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t))
-(custom-set-faces!
-  '(font-lock-comment-face :slant italic)
-  '(font-lock-keyword-face :slant italic))
 
 ;; Default spelling dictionary is English
 (setq ispell-dictionary "english")
@@ -19,22 +16,14 @@
 ;; Get system notifications through libnotify
 (setq alert-default-style 'libnotify)
 
-;; Enables Nixos-installed packages to be loaded
-(require 'package)
-(setq package-enable-at-startup nil) 
-(package-initialize)
-
 ;; Set location of custom.el
 ;; (setq custom-file "~/.emacs.d/custom.el")
 
+;; Enable Global word-wrap
+(+global-word-wrap-mode +1)
+
 ;; Always follow symlinks.
 (setq vc-follow-symlinks t)
-
-;; enable beacon here
-;; (beacon-mode 0)
-
-;; Set rust lsp server
-(setq lsp-rust-server 'rust-analyzer)
 
 ;; Set Doom theme
 (setq doom-theme 'doom-ayu-dark)
@@ -45,6 +34,7 @@
 (setq display-line-numbers-type 'relative)
 
 (setq org-directory "~/Documents/org/")
+
 
 (setq shell-file-name "/home/ludovico/.nix-profile/bin/zsh"
       vterm-max-scrollback 5000)
@@ -60,7 +50,18 @@
       :desc "Counsel eshell history" "e h" #'counsel-esh-history
       :desc "Vterm popup toggle" "v t" #'+vterm/toggle)
 
-;; Nix
+;; Change doom modeline to user letter instead of icon
+(use-package! doom-modeline
+  :defer t
+  :custom
+  (doom-modeline-modal-icon nil))
+
+;; Enables Nixos-installed packages to be loaded
+(require 'package)
+(setq package-enable-at-startup nil)
+(package-initialize)
+
+;; Set Nix Formatter
 (setq-hook! 'nix-mode-hook +format-with 'nixpkgs-fmt)
 (set-formatter! 'nixpkgs-fmt "nixpkgs-fmt" :modes 'nix-mode)
 (after! nix-mode
@@ -76,11 +77,8 @@
   (when (featurep 'evil)
     (add-hook! 'rustic-popup-mode-hook #'evil-emacs-state)))
 
-;; Change doom modeline to user letter instead of icon
-(use-package! doom-modeline
-  :defer t
-  :custom
-  (doom-modeline-modal-icon nil))
-
 ;; Treemacs
 (setq treemacs-width 30)
+
+(provide 'config)
+;;; config.el ends here
