@@ -1,7 +1,8 @@
-{ lib
-, config
-, pkgs
-, ...
+{
+  lib,
+  config,
+  pkgs,
+  ...
 }: {
   programs.neovim = {
     enable = true;
@@ -84,7 +85,6 @@
       nodejs-16_x # for copilot
       rnix-lsp
       nil # another nix languageserver
-      nixfmt # Nix
       nixpkgs-fmt
       sumneko-lua-language-server
       stylua # Lua
@@ -95,27 +95,25 @@
     ];
 
     # https://github.com/fufexan/dotfiles/blob/main/home/editors/neovim/default.nix#L41
-    extraConfig =
-      let
-        luaRequire = module:
-          builtins.readFile (builtins.toString
-            ./lua
+    extraConfig = let
+      luaRequire = module:
+        builtins.readFile (builtins.toString
+          ./lua
           + "/${module}.lua");
-        luaConfig = builtins.concatStringsSep "\n" (map luaRequire [
-          "cmp"
-          "colorizer"
-          "keybind"
-          "settings"
-          "theme"
-          "ui"
-        ]);
-      in
-      ''
-        set guicursor=n-v-c-i:block
-        lua << EOF
-        ${luaConfig}
-        EOF
-      '';
+      luaConfig = builtins.concatStringsSep "\n" (map luaRequire [
+        "cmp"
+        "colorizer"
+        "keybind"
+        "settings"
+        "theme"
+        "ui"
+      ]);
+    in ''
+      set guicursor=n-v-c-i:block
+      lua << EOF
+      ${luaConfig}
+      EOF
+    '';
   };
   # home.file.".config/nvim/settings.lua".source = ./init.lua;
   # extraConfig = ''
