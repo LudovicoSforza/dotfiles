@@ -14,4 +14,8 @@
     command = "${pkgs.dunst}/bin/dunst";
     notification = false;
   }
+  {
+    command = "xset r rate 300 30";
+    notification = false;
+  }
 ]
