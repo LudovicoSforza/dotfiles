@@ -13,7 +13,7 @@
       mainBar = {
         position = "top";
         monitor = "eDP-1";
-        layer = "bottom";
+        layer = "top";
         height = 30;
 
         modules-left = [ "wlr/workspaces" "tray" ];
