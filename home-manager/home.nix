@@ -42,7 +42,7 @@
     # Browser
     outputs.homeManagerModules.chromium
     outputs.homeManagerModules.firefox
-    outputs.homeManagerModules.qutebrowser
+    # outputs.homeManagerModules.qutebrowser
 
     # Scripts
     outputs.homeManagerModules.scripts
