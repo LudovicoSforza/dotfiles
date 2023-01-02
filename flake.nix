@@ -20,7 +20,7 @@
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
 
     # Helix
-    helix.url = "github:SoraTenshi/helix/experimental";
+    helix.url = "github:SoraTenshi/helix/experimental-22.12";
 
     # Webcord
     webcord.url = "github:fufexan/webcord-flake";
