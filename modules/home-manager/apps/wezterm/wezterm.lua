@@ -76,6 +76,7 @@ return {
         {
             family = "UbuntuMono Nerd Font",
             weight = "Regular",
+            -- harfbuzz for UbuntuMono Nerd Font
             harfbuzz_features = {
                 "cv01",
                 "cv02",
@@ -150,7 +151,7 @@ return {
         { key = "v", mods = "LEADER", action = wezterm.action({ SplitVertical = { domain = "CurrentPaneDomain" } }) },
 
         -- close tabs
-        { key = "w", mods = "CTRL", action = wezterm.action({ CloseCurrentTab = { confirm = true } }) },
+        -- { key = "w", mods = "CTRL", action = wezterm.action({ CloseCurrentTab = { confirm = true } }) },
 
         -- screen/tmux compat
         { key = "c", mods = "LEADER", action = wezterm.action({ SpawnTab = "CurrentPaneDomain" }) },
