@@ -5,8 +5,10 @@
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    # Nix Color ( for colorscheme )
     nix-colors.url = "github:misterio77/nix-colors";
 
+    # Nix Language Server
     nil = {
       url = "github:oxalica/nil";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,6 +19,7 @@
     # Doom Emacs
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
 
+    # Helix
     helix.url = "github:SoraTenshi/helix/experimental";
 
     # Webcord
@@ -50,10 +53,6 @@
     };
 
     hyprpicker.url = "github:hyprwm/hyprpicker";
-    # xdph = {
-    #   url = "github:hyprwm/xdg-desktop-portal-hyprland";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland-contrib = {
       url = "github:hyprwm/contrib";
@@ -120,7 +119,8 @@
 
       homeConfigurations = {
         "ludovico@sforza" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+          # Home-manager requires 'pkgs' instance
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = { inherit inputs nix-colors outputs; };
           modules = [
             # > Our main home-manager configuration file <
