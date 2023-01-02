@@ -9,6 +9,10 @@ in
   "${modifier}+Return" = "exec ${pkgs.wezterm}/bin/wezterm";
   "${modifier}+p" = "exec ${pkgs.dmenu}/bin/dmenu_run";
 
+  # Emacs
+  "mod1+e" = "exec emacsclient -c";
+  "mod1+d" = "exec emacsclient -c --eval '(dired nil)'";
+
   # Discord
   "${modifier}+d" = "exec ${pkgs.discord-canary}/bin/discordcanary --ignore-gpu-blocklist --disable-features=UseOzonePlatform --enable-features=VaapiVideoDecoder --use-gl=desktop --enable-gpu-rasterization --enable-zero-copy";
 
