@@ -13,18 +13,18 @@
       mainBar = {
         position = "top";
         monitor = "eDP-1";
-        layer = "top";
+        layer = "bottom";
         height = 30;
 
         modules-left = [ "wlr/workspaces" "tray" ];
         modules-right = [
           "network"
-          "wireplumber"
+          "pulseaudio"
           "battery"
           "custom/date"
           "clock"
         ];
-        "wireplumber" = {
+        "pulseaudio" = {
           "format" = "{icon} {volume}%";
           "format-muted" = "婢";
           "on-click" = "amixer -q set Master toggle-mute";

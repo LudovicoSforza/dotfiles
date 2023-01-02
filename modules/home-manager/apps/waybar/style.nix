@@ -94,7 +94,7 @@ in
       background: #${colors.base0F}
      }
 
-     #wireplumber {
+     #pulseaudio {
      	margin-top: 3px;
      	margin-left: 8px;
      	padding-left: 10px;
