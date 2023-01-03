@@ -22,7 +22,6 @@
       "hs" = "home-manager switch --flake ~/.config/nixos";
       "cat" = lib.getExe bat;
       "config" = "cd ~/.config/nixos";
-      #"hx" = "helix";
       "lg" = "lazygit";
       "ls" = "exa --icons";
       "l" = "exa -lbF --git --icons";

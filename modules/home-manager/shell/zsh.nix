@@ -34,7 +34,6 @@
       "bb" = "doas nixos-rebuild boot --flake ~/.config/nixos";
       "config" = "cd ~/.config/nixos";
       "hs" = "home-manager switch --flake ~/.config/nixos";
-      "hx" = "helix";
       "lg" = "lazygit";
       "ls" = "exa --icons";
       "l" = "exa -lbF --git --icons";
