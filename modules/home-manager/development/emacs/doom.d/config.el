@@ -97,5 +97,8 @@
          ("<tab>" . 'copilot-accept-completion)
          ("TAB" . 'copilot-accept-completion)))
 
+;; disable lsp diagnostics
+(setq lsp-diagnostic-package :none)
+
 (provide 'config)
 ;;; config.el ends here
