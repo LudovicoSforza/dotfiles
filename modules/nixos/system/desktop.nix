@@ -8,7 +8,7 @@
     pulseaudio.enable = false;
     bluetooth.enable = true;
   };
-  environment.pathsToLink = [ "/share/zsh" ];
+  environment.pathsToLink = [ "/share/fish" ];
 
   xdg.portal = {
     enable = true;
