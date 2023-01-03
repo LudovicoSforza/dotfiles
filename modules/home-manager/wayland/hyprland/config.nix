@@ -103,7 +103,7 @@ in
     windowrulev2 = noshadow, class:^(discord)$
 
     # Variables
-    $discordOption = --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-accelerated-mjpeg-decode --enable-accelerated-video --ignore-gpu-blacklist --enable-native-gpu-memory- buffers --enable-gpu-rasterization --enable-gpu --enable-features=WebRTCPipeWireCapturer
+    $discordOption = --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-accelerated-mjpeg-decode --enable-accelerated-video --ignore-gpu-blacklist --enable-native-gpu-memory-buffers --enable-gpu-rasterization --enable-gpu --enable-features=WebRTCPipeWireCapturer
     $discord = discordcanary $discordOption
     $webcord = webcord $discordOption
     $powermenu = $HYPR_FOLDER/scripts/powermenu
