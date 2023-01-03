@@ -188,5 +188,6 @@ in
 
     exec-once = ${pkgs.waybar}/bin/waybar
     exec-once = ${pkgs.hyprpaper}/bin/hyprpaper
+    exec-once = pkill emacs; emacs --daemon
   '';
 }
