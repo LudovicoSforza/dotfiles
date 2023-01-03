@@ -51,3 +51,4 @@
 
 ;; UI improvements for Org mode
 (package! org-modern)
+(package! evil-tutor)

@@ -16,9 +16,6 @@
 ;; Default spelling dictionary is English
 (setq ispell-dictionary "english")
 
-;; Get system notifications through libnotify
-(setq alert-default-style 'libnotify)
-
 ;; Set location of custom.el
 ;; (setq custom-file "~/.emacs.d/custom.el")
 

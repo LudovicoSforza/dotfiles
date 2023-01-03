@@ -56,7 +56,7 @@
     inputs.hyprland.homeManagerModules.default
     inputs.spicetify-nix.homeManagerModule
     inputs.nix-colors.homeManagerModule
-    inputs.nix-doom-emacs.hmModule
+    # inputs.nix-doom-emacs.hmModule
 
     # You can also split up your configuration and import pieces of it here:
     # ./chromium.nix

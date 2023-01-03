@@ -17,7 +17,7 @@
     };
 
     # Doom Emacs
-    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
+    # nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
 
     # Helix
     helix.url = "github:SoraTenshi/helix/experimental-22.12";
