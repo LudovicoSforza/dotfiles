@@ -5,6 +5,15 @@
     rnix-lsp
     nixpkgs-fmt
     coreutils
+    nodejs-16_x # for copilot
+  ];
+
+  # add emacs-overlay
+  nixpkgs.overlays = [
+    (import (builtins.fetchTarball {
+      url = "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
+      sha256 = "02kbc2rgwv59n9zfsyafzydy8gvynjzfr6wky279gas56whd2gjq";
+    }))
   ];
 
   home.file.".doom.d" = {
@@ -15,7 +24,10 @@
   };
 
   programs = {
-    emacs.enable = true; # Get Emacs
+    emacs = {
+      enable = true; # Get Emacs
+      package = pkgs.emacsGit;
+    };
   };
 }
 
