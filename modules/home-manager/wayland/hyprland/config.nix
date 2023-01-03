@@ -114,7 +114,6 @@ in
     bind = SUPER      , D , exec , $discord
     bind = SUPERSHIFT , D , exec , $webcord
     bind = SUPERSHIFT , E , exec , [float] thunar
-    bind = SUPER      , E , exec , emacsclient -c -a 'nvim'
     bind = SUPER      , F , fullscreen , 0
     bind = SUPERSHIFT , G , exec , chromium
     bind = SUPER      , G , exec , ${pkgs.firefox}/bin/firefox
@@ -131,6 +130,10 @@ in
     bind = CTRL       , Return , exec , ${pkgs.kitty}/bin/kitty
     bind = SUPERSHIFT , Return , exec , foot
     bind = SUPER      , Return , exec , ${pkgs.wezterm}/bin/wezterm
+
+    # EMACS
+    bind = SUPER , E , exec , emacsclient -c -a 'nvim'
+    bind = ALT   , E , exec , emacsclient -c -eval '(dired nil)'
 
     # Binds Mouse
     bindm = SUPER , mouse:272 , movewindow
