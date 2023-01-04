@@ -8,6 +8,7 @@ with lib; let
   maintenance = pkgs.writeShellScriptBin "maintenance" ''${builtins.readFile ./maintenance}'';
 in
 {
+
   home.packages = with pkgs; [
     ripgrep
     ffmpeg

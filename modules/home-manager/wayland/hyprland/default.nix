@@ -3,7 +3,21 @@
 , lib
 , config
 , ...
-}: {
+}: # Wayland config
+let
+  # https://github.com/fufexan/dotfiles/blob/e8e00c0c8586606394617cab125319831104dff6/home/wayland/default.nix#L10
+  # use OCR and copy to clipboard
+  ocrScript =
+    let
+      inherit (pkgs) grim libnotify slurp tesseract5 wl-clipboard;
+      _ = lib.getExe;
+    in
+    pkgs.writeShellScriptBin "wl-ocr" ''
+      ${_ grim} -g "$(${_ slurp})" -t ppm - | ${_ tesseract5} - - | ${wl-clipboard}/bin/wl-copy
+      ${_ libnotify} "$(${wl-clipboard}/bin/wl-paste)"
+    '';
+in
+{
   home.packages = with pkgs; [
     hyprpaper # For Wallpaper
     bemenu # Menu
@@ -15,6 +29,7 @@
     jq
     playerctl
     slurp
+    ocrScript
 
     swaylock
     viewnior
