@@ -61,6 +61,7 @@
 (setq package-enable-at-startup nil)
 (package-initialize)
 
+;; Nix
 ;; Set Nix Formatter
 (setq-hook! 'nix-mode-hook +format-with 'nixpkgs-fmt)
 (set-formatter! 'nixpkgs-fmt "nixpkgs-fmt" :modes 'nix-mode)
@@ -68,6 +69,7 @@
   (set-formatter! 'nixpkgs-fmt "nixpkgs-fmt" :modes '(nix-mode))
   (puthash 'nixpkgs-fmt "nixpkgs-fmt" format-all--executable-table))
 
+;; Rust
 ;; Change rust lsp server
 (use-package! rustic
   :defer t
@@ -97,8 +99,9 @@
          ("<tab>" . 'copilot-accept-completion)
          ("TAB" . 'copilot-accept-completion)))
 
-;; disable lsp diagnostics
-(setq lsp-diagnostic-package :none)
+;; remap ; to :
+(map! :map evil-normal-state-map
+      ";" #'evil-ex)
 
 (provide 'config)
 ;;; config.el ends here
