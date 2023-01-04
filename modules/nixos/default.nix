@@ -14,5 +14,4 @@
   user = import ./system/user.nix;
   doas = import ./system/doas.nix;
   fonts = import ./system/fonts.nix;
-  virtualization = import ./system/virtualization.nix;
 }
