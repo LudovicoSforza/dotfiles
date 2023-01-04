@@ -2,7 +2,7 @@
 , lib
 , ...
 }: {
-  home.packages = with pkgs; [ commitizen exa fzf fd bat ripgrep lazygit ];
+  home.packages = with pkgs; [ commitizen zoxide exa fzf fd bat ripgrep lazygit ];
   programs.nix-index.enable = true;
   programs.fish = {
     enable = true;
@@ -13,8 +13,11 @@
       run = "nix run nixpkgs#$argv";
       gadd = "git add $argv";
     };
-    shellInit = ''
+    shellInit = with lib;with pkgs;''
       starship init fish | source
+        ${getExe pkgs.any-nix-shell} fish --info-right | source
+        ${getExe pkgs.zoxide} init fish | source
+        ${getExe pkgs.direnv} hook fish | source
     '';
     shellAliases = with pkgs; {
       "bs" = "doas nixos-rebuild switch --flake ~/.config/nixos";
