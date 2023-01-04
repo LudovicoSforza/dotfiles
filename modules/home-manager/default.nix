@@ -43,6 +43,6 @@
 
   # Browser
   chromium = import ./browser/chromium.nix;
-  firefox = import ./browser/firefox.nix;
+  firefox = import ./browser/firefox;
   qutebrowser = import ./browser/qutebrowser.nix;
 }
