@@ -1,10 +1,10 @@
 { pkgs, ... }: {
-  home.file = {
-    ".mozilla/firefox/ludovico/chrome/includes" = {
-      source = ./includes;
-      recursive = true;
-    };
-  };
+  # home.file = {
+  #   ".mozilla/firefox/ludovico/chrome/css" = {
+  #     source = ./css;
+  #     recursive = true;
+  #   };
+  # };
 
   programs.firefox = {
     enable = true;
@@ -131,39 +131,59 @@
         "distribution.searchplugins.defaultLocale" = "en-AU";
         "general.useragent.locale" = "en-AU";
         "browser.bookmarks.showMobileBookmarks" = true;
+        "general.smoothScroll" = true;
+        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+
+        # # Disable telemetry
+        "browser.newtabpage.activity-stream.feeds.telemetry" = false;
+        "browser.ping-centre.telemetry" = false;
+        "browser.tabs.crashReporting.sendReport" = false;
+        "devtools.onboarding.telemetry.logged" = false;
+        "toolkit.telemetry.enabled" = false;
+        "toolkit.telemetry.server" = "data:,";
+        "toolkit.telemetry.unified" = false;
+        "toolkit.telemetry.archive.enabled" = false;
+        "toolkit.telemetry.newProfilePing.enabled" = false;
+        "toolkit.telemetry.shutdownPingSender.enabled" = false;
+        "toolkit.telemetry.updatePing.enabled" = false;
+        "toolkit.telemetry.bhrPing.enabled" = false;
+        "toolkit.telemetry.firstShutdownPing.enabled" = false;
+
+        # # Disable Pocket
+        "browser.newtabpage.activity-stream.feeds.discoverystreamfeed" = false;
+        "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
+        "browser.newtabpage.activity-stream.section.highlights.includePocket" = false;
+        "browser.newtabpage.activity-stream.showSponsored" = false;
+        "extensions.pocket.enabled" = false;
+
+        # Disable prefetching
+        "network.dns.disablePrefetch" = true;
+        "network.prefetch-next" = false;
+
+        # Disable JS in PDFs
+        "pdfjs.enableScripting" = false;
+
+        # Harden SSL
+        "security.ssl.require_safe_negotiation" = true;
+
+        # # Extra
+        "identity.fxaccounts.enabled" = false;
+        "browser.search.suggest.enabled" = true;
+        "browser.urlbar.shortcuts.bookmarks" = false;
+        "browser.urlbar.shortcuts.history" = false;
+        "browser.urlbar.shortcuts.tabs" = false;
+        "browser.urlbar.suggest.bookmark" = false;
+        "browser.urlbar.suggest.searches" = true;
+        "browser.urlbar.suggest.engines" = false;
+        "browser.urlbar.suggest.history" = true;
+        "browser.urlbar.suggest.openpage" = false;
+        "browser.urlbar.suggest.topsites" = false;
+        "signon.rememberSignons" = false;
+        "network.dns.disableIPv6" = true;
+        "network.proxy.socks_remote_dns" = true;
+        "dom.security.https_first" = true;
       };
-      userChrome = ''
-        @import 'includes/cascade-config.css';
-        @import 'includes/cascade-macchiato.css';
-
-        @import 'includes/cascade-layout.css';
-        @import 'includes/cascade-responsive.css';
-        @import 'includes/cascade-floating-panel.css';
-
-        @import 'includes/cascade-tcr.css';
-        @import 'includes/cascade-nav-bar.css';
-
-        #webrtcIndicator {
-          display: none !important;
-        }'';
-      userContent = ''
-        @import url("userChrome.css");
-
-        /* Removes white loading page */
-        @-moz-document url(about:blank), url(about:newtab), url(about:home) {
-            html:not(#ublock0-epicker), html:not(#ublock0-epicker) body, #newtab-customize-overlay {
-              background: var(--mff-bg) !important;
-            }
-          }
-          /* Hide scrollbar */
-          :root{
-            scrollbar-width: none !important;
-          }
-          @-moz-document url(about:privatebrowsing) {
-          :root{
-            scrollbar-width: none !important;
-          }
-          }'';
+      userChrome = "\n                    * { \n                        box-shadow: none !important;\n                        border: 0px solid !important;\n                    }\n                    #tabbrowser-tabs {\n                        --user-tab-rounding: 8px;\n                    }\n                    .tab-background {\n                        border-radius: var(--user-tab-rounding) var(--user-tab-rounding) 0px 0px !important; /* Connected */\n                        margin-block: 1px 0 !important; /* Connected */\n                    }\n                    #scrollbutton-up, #scrollbutton-down { /* 6/10/2021 */\n                        border-top-width: 1px !important;\n                        border-bottom-width: 0 !important;\n                    }\n                    .tab-background:is([selected], [multiselected]):-moz-lwtheme {\n                        --lwt-tabs-border-color: rgba(0, 0, 0, 0.5) !important;\n                        border-bottom-color: transparent !important;\n                    }\n                    [brighttext='true'] .tab-background:is([selected], [multiselected]):-moz-lwtheme {\n                        --lwt-tabs-border-color: rgba(255, 255, 255, 0.5) !important;\n                        border-bottom-color: transparent !important;\n                    }\n                    /* Container color bar visibility */\n                    .tabbrowser-tab[usercontextid] > .tab-stack > .tab-background > .tab-context-line {\n                        margin: 0px max(calc(var(--user-tab-rounding) - 3px), 0px) !important;\n                    }\n                    #TabsToolbar, #tabbrowser-tabs {\n                        --tab-min-height: 29px !important;\n                    }\n                    #main-window[sizemode='true'] #toolbar-menubar[autohide='true'] + #TabsToolbar, \n                    #main-window[sizemode='true'] #toolbar-menubar[autohide='true'] + #TabsToolbar #tabbrowser-tabs {\n                        --tab-min-height: 30px !important;\n                    }\n                    #scrollbutton-up,\n                    #scrollbutton-down {\n                        border-top-width: 0 !important;\n                        border-bottom-width: 0 !important;\n                    }\n                    #TabsToolbar, #TabsToolbar > hbox, #TabsToolbar-customization-target, #tabbrowser-arrowscrollbox  {\n                        max-height: calc(var(--tab-min-height) + 1px) !important;\n                    }\n                    #TabsToolbar-customization-target toolbarbutton > .toolbarbutton-icon, \n                    #TabsToolbar-customization-target .toolbarbutton-text, \n                    #TabsToolbar-customization-target .toolbarbutton-badge-stack,\n                    #scrollbutton-up,#scrollbutton-down {\n                        padding-top: 7px !important;\n                        padding-bottom: 6px !important;\n                    }\n                ";
     };
   };
 }
