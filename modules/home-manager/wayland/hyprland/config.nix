@@ -141,7 +141,7 @@ in
 
     # Screenshot
     bind = CTRL  , Print , exec , grimblast --notify copy area
-    bind = SUPER , Print , exec , grimblast --notify --cursor copysave output
+    bind = SUPER , Print , exec , grimblast --notify --cursor copysave output ~/Pictures/Screenshots/$(date +'%s.png')
     bind = SUPERSHIFT , Print , exec , wl-ocr
 
     bind = SUPER , h , resizeactive , -20 0
