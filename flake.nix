@@ -16,6 +16,7 @@
       inputs.rust-overlay.follows = "rust-overlay";
     };
 
+
     # FIXME: remove this comment if you want to use nix-doom-emacs version
     # Doom Emacs
     # nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
