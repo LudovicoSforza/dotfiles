@@ -35,21 +35,6 @@
 
 (setq org-directory "~/Documents/org/")
 
-
-;; (setq shell-file-name "/home/ludovico/.nix-profile/bin/zsh"
-;;       vterm-max-scrollback 5000)
-;; (setq shell-history-size 5000
-;;       eshell-buffer-maximum-lines 5000
-;;       eshell-hist-ignoredups t
-;;       eshell-scroll-to-bottom-on-input t
-;;       eshell-destroy-buffer-when-process-dies t
-;;       eshell-visual-commands'("bash" "fish" "htop" "ssh" "top" "zsh"))
-;; (map! :leader
-;;       :desc "Eshell" "e s" #'eshell
-;;       :desc "Eshell popup toggle" "e t" #'+eshell/toggle
-;;       :desc "Counsel eshell history" "e h" #'counsel-esh-history
-;;       :desc "Vterm popup toggle" "v t" #'+vterm/toggle)
-
 ;; Change doom modeline to user letter instead of icon
 (use-package! doom-modeline
   :defer t
@@ -62,12 +47,23 @@
 (package-initialize)
 
 ;; Nix
+;; otherwise nix-mode will block on instantiating stuff
+(setenv "NIX_REMOTE_SYSTEMS" "")
 ;; Set Nix Formatter
 (setq-hook! 'nix-mode-hook +format-with 'nixpkgs-fmt)
 (set-formatter! 'nixpkgs-fmt "nixpkgs-fmt" :modes 'nix-mode)
 (after! nix-mode
   (set-formatter! 'nixpkgs-fmt "nixpkgs-fmt" :modes '(nix-mode))
   (puthash 'nixpkgs-fmt "nixpkgs-fmt" format-all--executable-table))
+;; Change nix lsp server to nil
+(use-package! lsp-mode
+  :config
+  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\.terragrunt-cache\\'")
+  (add-to-list 'lsp-language-id-configuration '(nix-mode . "nix"))
+  (lsp-register-client
+   (make-lsp-client :new-connection (lsp-stdio-connection '("nil"))
+                    :major-modes '(nix-mode)
+                    :server-id 'nix)))
 
 ;; Rust
 ;; Change rust lsp server
@@ -103,5 +99,10 @@
 (map! :map evil-normal-state-map
       ";" #'evil-ex)
 
-(provide 'config)
+;; Discord Presence
+(require 'elcord)
+(setq elcord-quiet t)
+(add-hook 'after-init-hook 'elcord-mode)
+
+;; (provide 'config)
 ;;; config.el ends here

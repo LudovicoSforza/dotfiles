@@ -1,5 +1,5 @@
 {
-  description = "Ludovico's NixOS and Home-Manager configuration";
+  description = "Lewdovico's NixOS and Home-Manager configuration";
 
   inputs = {
     # Nixpkgs

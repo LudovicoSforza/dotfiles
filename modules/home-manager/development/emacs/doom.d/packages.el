@@ -52,7 +52,10 @@
 ;; UI improvements for Org mode
 (package! org-modern)
 (package! evil-tutor)
+(package! elcord)
 
 ;; Copilot
 (package! copilot
-  :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))
+  :recipe (:host github
+           :repo "zerolfx/copilot.el"
+           :files ("*.el" "dist")))
