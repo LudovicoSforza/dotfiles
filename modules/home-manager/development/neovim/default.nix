@@ -82,7 +82,7 @@
 
     extraPackages = with pkgs; [
       nodejs-16_x # for copilot
-      rnix-lsp
+      # rnix-lsp
       nil # another nix languageserver
       nixpkgs-fmt
       sumneko-lua-language-server

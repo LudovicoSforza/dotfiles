@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    rnix-lsp
+    # rnix-lsp
     nixpkgs-fmt
     coreutils
     nodejs-16_x # for copilot
