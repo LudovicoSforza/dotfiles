@@ -56,57 +56,11 @@
     inputs.hyprland.homeManagerModules.default
     inputs.spicetify-nix.homeManagerModule
     inputs.nix-colors.homeManagerModule
+
+
+    # FIXME: remove this comment if you want to use nix-doom-emacs version
+    # nix-doom-emacs
     # inputs.nix-doom-emacs.hmModule
-
-    # You can also split up your configuration and import pieces of it here:
-    # ./chromium.nix
-  ];
-
-  nixpkgs = {
-    # You can add overlays here
-    overlays = [
-      # If you want to use overlays your own flake exports (from overlays dir):
-      outputs.overlays.modifications
-      outputs.overlays.additions
-
-      # Or overlays exported from other flakes:
-      inputs.nur.overlay
-      inputs.hyprpicker.overlays.default
-      inputs.nixpkgs-wayland.overlay
-
-      # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
-    ];
-    # Configure your nixpkgs instance
-    config = {
-      # Disable if you don't want unfree packages
-      allowUnfree = true;
-      # Workaround for https://github.com/nix-community/home-manager/issues/2942
-      allowUnfreePredicate = _: true;
-    };
-  };
-
-  # Set nix-colors Colorscheme
-  colorScheme = inputs.nix-colors.colorSchemes.catppuccin;
-  # colorScheme = nix-colors-lib.colorSchemeFromPicture {
-  #   path = ./wall.png;
-  #   kind = "dark";
-  # };
-
-  home = {
-    username = "ludovico";
-    homeDirectory = "/home/ludovico";
-  };
-
-  # Add stuff for your user as you see fit:
-  # programs.neovim.enable = true;
-  home.packages = with pkgs; [
-    discord-canary
-    tlauncher
   ];
 
   # Enable home-manager and git
