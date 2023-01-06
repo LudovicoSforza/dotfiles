@@ -34,6 +34,7 @@
       VISUAL = "nvim";
       _JAVA_AWT_WM_NONREPARENTING = "1";
       NIXOS_CONFIG_DIR = "$HOME/.config/nixos";
+      XDG_CACHE_HOME = "~/.cache";
     };
   };
 

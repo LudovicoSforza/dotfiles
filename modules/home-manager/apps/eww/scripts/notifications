@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-tmp=$XDG_CACHE_HOME/dunst-history.json
-lock="$XDG_CACHE_HOME/dunst-toggle.lock"
-lockinfo="$XDG_CACHE_HOME/dunst-lock-info"
+tmp=~/.cache/dunst-history.json
+lock="~/.cache/dunst-toggle.lock"
+lockinfo="~/.cache/dunst-lock-info"
 
 touch $lockinfo
 
