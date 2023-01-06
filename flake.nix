@@ -23,6 +23,10 @@
     # Helix
     helix.url = "github:SoraTenshi/helix/experimental-22.12";
 
+    # Nix Index Database
+    nix-index-database.url = "github:Mic92/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+
     # Webcord
     webcord.url = "github:fufexan/webcord-flake";
 
@@ -67,6 +71,7 @@
     , home-manager
     , hyprland
     , nix-colors
+    , nix-index-database
     , ...
     } @ inputs:
     let

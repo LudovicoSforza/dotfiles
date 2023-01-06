@@ -741,6 +741,26 @@
         "type": "github"
       }
     },
+    "nix-index-database": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1672543420,
+        "narHash": "sha256-n6hatHjbTmylU4w8ZMrPZQTOrgUgCWthGUFC3BMBvuw=",
+        "owner": "Mic92",
+        "repo": "nix-index-database",
+        "rev": "83976f98374a2cbf02de1b4a3f93fdc359e457cb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "nix-index-database",
+        "type": "github"
+      }
+    },
     "nix-pypi-fetcher": {
       "flake": false,
       "locked": {
@@ -1026,6 +1046,7 @@
         "hyprpicker": "hyprpicker",
         "nil": "nil",
         "nix-colors": "nix-colors",
+        "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs_4",
         "nixpkgs-wayland": "nixpkgs-wayland",
         "nur": "nur",
