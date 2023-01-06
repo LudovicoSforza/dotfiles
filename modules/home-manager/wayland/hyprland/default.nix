@@ -41,10 +41,10 @@ in
 
   imports = [
     # ../apps/mako
-    ../../apps/waybar
+    # ../../apps/waybar
     ../../apps/gammastep
     ../../apps/dunst
-    # ../../apps/eww
+    ../../apps/eww
     ./config.nix
   ];
 

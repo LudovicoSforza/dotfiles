@@ -1,14 +1,15 @@
-{ pkgs, ... }: {
+{ inputs, pkgs, ... }: {
   fonts = {
     fontconfig.enable = true;
     fontDir.enable = true;
     fonts = with pkgs; [
       # Icons
+      inputs.self.packages.${pkgs.system}.material-symbols
+      inputs.self.packages.${pkgs.system}.google-sans
       material-icons
       material-design-icons
       fira-code-symbols
 
-      google-sans
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji

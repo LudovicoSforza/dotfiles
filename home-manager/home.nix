@@ -108,7 +108,7 @@
   # programs.neovim.enable = true;
   home.packages = with pkgs; [
     discord-canary
-    tlauncher
+    tdesktop # Telegram Gui
   ];
 
   # Enable home-manager and git
