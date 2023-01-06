@@ -13,11 +13,12 @@
       run = "nix run nixpkgs#$argv";
       gadd = "git add $argv";
     };
-    shellInit = with lib;with pkgs;''
-      starship init fish | source
-        ${getExe pkgs.any-nix-shell} fish --info-right | source
-        ${getExe pkgs.zoxide} init fish | source
-        ${getExe pkgs.direnv} hook fish | source
+    interactiveShellInit = with lib;with pkgs;''
+            starship init fish | source
+              ${getExe pkgs.any-nix-shell} fish --info-right | source
+              ${getExe pkgs.zoxide} init fish | source
+              ${getExe pkgs.direnv} hook fish | source
+      ${pkgs.nix-index}/etc/profile.d/command-not-found.sh | source
     '';
     shellAliases = with pkgs; {
       "bs" = "doas nixos-rebuild switch --flake ~/.config/nixos";
