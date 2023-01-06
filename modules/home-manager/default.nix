@@ -3,7 +3,6 @@
 {
   # List your module files here
   fish = import ./shell/fish.nix;
-  zsh = import ./shell/zsh.nix;
   starship = import ./shell/starship.nix;
   gtk = import ./gtk.nix;
 
