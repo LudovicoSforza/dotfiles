@@ -1,7 +1,6 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
 ;; TODO: Make doomemacs config look cleaner by separating files.
-;;
 ;;; Code:
 (setq user-full-name "Ludovico Piero"
       user-mail-address "ludovicopiero@pm.me")
@@ -50,7 +49,6 @@
 ;; otherwise nix-mode will block on instantiating stuff
 (setenv "NIX_REMOTE_SYSTEMS" "")
 ;; Set Nix Formatter
-(setq-hook! 'nix-mode-hook +format-with 'nixpkgs-fmt)
 (set-formatter! 'nixpkgs-fmt "nixpkgs-fmt" :modes 'nix-mode)
 (after! nix-mode
   (set-formatter! 'nixpkgs-fmt "nixpkgs-fmt" :modes '(nix-mode))

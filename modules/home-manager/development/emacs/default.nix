@@ -9,12 +9,12 @@
   ];
 
   # add emacs-overlay
-  nixpkgs.overlays = [
-    (import (builtins.fetchTarball {
-      url = "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
-      sha256 = "1a70ax37k2rqwr4fmk6rad63d0q2r01c8jw9rmvm5hwzvmrjnvjp";
-    }))
-  ];
+  # nixpkgs.overlays = [
+  #   (import (builtins.fetchTarball {
+  #     url = "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
+  #     sha256 = "1a70ax37k2rqwr4fmk6rad63d0q2r01c8jw9rmvm5hwzvmrjnvjp";
+  #   }))
+  # ];
 
   home.file.".doom.d" = {
     # Get Doom Emacs
@@ -26,7 +26,8 @@
   programs = {
     emacs = {
       enable = true; # Get Emacs
-      package = pkgs.emacsGit;
+      # emacsGit, emacsGit-nox, emascPgtk
+      package = pkgs.emacs;
     };
   };
 }
