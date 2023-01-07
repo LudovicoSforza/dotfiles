@@ -107,7 +107,10 @@
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   home.packages = with pkgs; [
-    discord-canary
+    (discord-canary.override {
+      nss = pkgs.nss_latest;
+      withOpenASAR = true;
+    })
     tdesktop # Telegram Gui
   ];
 
