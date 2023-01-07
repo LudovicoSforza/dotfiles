@@ -5,6 +5,17 @@
 ;; on the command line, then restart Emacs for the changes to take effect -- or
 ;; use 'M-x doom/reload'.
 
+;; UI improvements for Org mode
+(package! org-modern)
+(package! evil-tutor)
+(package! elcord)
+(package! yuck-mode)
+
+;; Copilot
+(package! copilot
+  :recipe (:host github
+           :repo "zerolfx/copilot.el"
+           :files ("*.el" "dist")))
 
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 ;(package! some-package)
@@ -49,13 +60,3 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
-;; UI improvements for Org mode
-(package! org-modern)
-(package! evil-tutor)
-(package! elcord)
-
-;; Copilot
-(package! copilot
-  :recipe (:host github
-           :repo "zerolfx/copilot.el"
-           :files ("*.el" "dist")))

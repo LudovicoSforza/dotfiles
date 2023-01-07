@@ -51,19 +51,4 @@
       src = lib.cleanSource ./.;
     };
   };
-
-  # systemd.user.services.eww = {
-  #   Unit = {
-  #     Description = "Eww Daemon";
-  #     # not yet implemented
-  #     # PartOf = ["tray.target"];
-  #     PartOf = [ "graphical-session.target" ];
-  #   };
-  #   Service = {
-  #     Environment = "PATH=/run/wrappers/bin:${lib.makeBinPath dependencies}";
-  #     ExecStart = "${config.programs.eww.package}/bin/eww daemon --no-daemonize";
-  #     Restart = "on-failure";
-  #   };
-  #   Install.WantedBy = [ "graphical-session.target" ];
-  # };
 }

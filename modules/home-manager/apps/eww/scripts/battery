@@ -55,7 +55,7 @@ gettime() {
 }
 
 while true; do
-	RATE=$(cat /sys/class/power_supply/BAT1/power_now)
+	RATE=$(cat /sys/class/power_supply/BAT1/voltage_now)
 	CAPACITY=$(cat /sys/class/power_supply/BAT1/capacity)
 	STATE=$(cat /sys/class/power_supply/BAT1/status)
 
