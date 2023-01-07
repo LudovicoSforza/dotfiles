@@ -191,8 +191,9 @@ in
     binde = , XF86MonBrightnessDown , exec , ${pkgs.brightnessctl}/bin/brightnessctl set 5%-
 
     # exec-once = ${pkgs.waybar}/bin/waybar
-    exec-once = eww open bar
     exec-once = ${pkgs.hyprpaper}/bin/hyprpaper
     exec-once = pkill emacs; emacs --daemon
+    exec-once = pkill eww; eww daemon
+    exec-once = eww open bar
   '';
 }
