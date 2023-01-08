@@ -128,6 +128,7 @@
       #     };
       #   };
       # };
+
       displayManager.sddm = {
         enable = true;
         theme = "multicolor-sddm-theme";
