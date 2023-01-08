@@ -87,6 +87,8 @@
     dbus.packages = [ pkgs.gcr ];
     udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 
+    btrfs.autoScrub.enable = true;
+
     # TLP For Laptop
     tlp.enable = true;
     tlp.settings = {
