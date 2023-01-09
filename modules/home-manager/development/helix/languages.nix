@@ -53,7 +53,7 @@ with pkgs; [
     name = "nix";
     auto-format = true;
     language-server = { command = lib.getExe inputs.nil.packages.${system}.default; };
-    config.nil.formatting.command = [ "alejandra" "-q" ];
+    config.nil.formatting.command = [ "nixpkgs-fmt" ];
   }
   {
     name = "rust";
