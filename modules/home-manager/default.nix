@@ -10,6 +10,9 @@
   hyprland = import ./wayland/hyprland;
   i3 = import ./x11/i3;
 
+  # Games
+  games = import ./games;
+
   # Apps
   dunst = import ./apps/dunst;
   webcord = import ./apps/webcord;

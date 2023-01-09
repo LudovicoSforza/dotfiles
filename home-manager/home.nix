@@ -19,6 +19,9 @@
     outputs.homeManagerModules.hyprland
     outputs.homeManagerModules.i3
 
+    # Games
+    outputs.homeManagerModules.games
+
     # Apps
     outputs.homeManagerModules.git
     outputs.homeManagerModules.webcord

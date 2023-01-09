@@ -4,9 +4,15 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    # Nix Color ( for colorscheme )
+    webcord.url = "github:fufexan/webcord-flake";
+    helix.url = "github:SoraTenshi/helix/experimental-22.12";
+    spicetify-nix.url = "github:the-argus/spicetify-nix";
+    hardware.url = "github:nixos/nixos-hardware";
+    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     nix-colors.url = "github:misterio77/nix-colors";
+    nur.url = "github:nix-community/NUR";
+    fu.url = "github:numtide/flake-utils";
+    nix-gaming.url = "github:fufexan/nix-gaming";
 
     # Nix Language Server
     nil = {
@@ -20,30 +26,17 @@
     # Doom Emacs
     # nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
 
-    # Helix
-    helix.url = "github:SoraTenshi/helix/experimental-22.12";
-
     # Nix Index Database
-    nix-index-database.url = "github:Mic92/nix-index-database";
-    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-
-    # Webcord
-    webcord.url = "github:fufexan/webcord-flake";
-
-    # Spicetify
-    spicetify-nix.url = "github:the-argus/spicetify-nix";
+    nix-index-database = {
+      url = "github:Mic92/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Home manager
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
-    hardware.url = "github:nixos/nixos-hardware";
-    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
-
-    # Nix User Repository
-    # I use this for firefox extensions
-    nur.url = "github:nix-community/NUR";
-    fu.url = "github:numtide/flake-utils";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     eww = {
       url = "github:elkowar/eww";
