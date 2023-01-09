@@ -4,7 +4,7 @@
     userName = "Ludovico Piero";
     diff-so-fancy.enable = true;
     signing = {
-      key = "267C8AC8AB72BD95";
+      key = "E4EF0932B0ACD6FB";
       signByDefault = true;
     };
     extraConfig = {
