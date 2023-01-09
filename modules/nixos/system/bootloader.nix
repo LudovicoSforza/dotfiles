@@ -22,17 +22,18 @@ in
     loader = {
       efi = {
         canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot/efi";
+        efiSysMountPoint = "/boot";
       };
-      # systemd-boot.enable = true;
-      grub = {
-        enable = true;
-        efiSupport = true;
-        version = 2;
-        device = "nodev";
-        useOSProber = true;
-        theme = "${theme}";
-      };
+      systemd-boot.enable = true;
+      # grub = {
+      #   enable = true;
+      #   efiSupport = true;
+      #   version = 2;
+      #   device = "nodev";
+      #   enableCryptodisk = true;
+      #   useOSProber = true;
+      #   theme = "${theme}";
+      # };
     };
     kernel.sysctl = {
       "vm.swappiness" = 10;
