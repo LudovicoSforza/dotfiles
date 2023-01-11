@@ -77,7 +77,7 @@
       # Or overlays exported from other flakes:
       inputs.nur.overlay
       inputs.hyprpicker.overlays.default
-      inputs.nixpkgs-wayland.overlay
+      # inputs.nixpkgs-wayland.overlay
 
       # Or define it inline, for example:
       # (final: prev: {
