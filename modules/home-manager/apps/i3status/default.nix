@@ -47,6 +47,8 @@
             format = " %a %d/%m %k:%M %p ";
           }
         ];
+        theme = "dracula";
+        icons = "awesome";
         settings = {
           icons_format = "{icon}";
           theme = {
