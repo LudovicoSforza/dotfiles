@@ -1,6 +1,6 @@
 # My NixOS Dotfiles
 
-This is my NixOS dotfiles based on [nixos-starter-config](https://github.com/Misterio77/nix-starter-configs). Feel free to use it as a starting point for your own configuration.
+This is my NixOS dotfiles based on [nixos-starter-config](https://github.com/Misterio77/nix-starter-configs). Anything here is free to use, but I don't guarantee anything. I'm not responsible for any damage caused by these files. Use at your own risk.
 
 ## Apps
 
