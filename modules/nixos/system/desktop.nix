@@ -144,6 +144,13 @@
             exec $HOME/.xsession-i3
           '';
         }
+        {
+          manage = "window";
+          name = "bspwm";
+          start = ''
+            exec $HOME/.xsession-bspwm
+          '';
+        }
       ];
     };
 

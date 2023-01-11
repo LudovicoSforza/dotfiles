@@ -9,12 +9,14 @@
   # Wayland / Window Manager
   hyprland = import ./wayland/hyprland;
   i3 = import ./x11/i3;
+  bspwm = import ./x11/bspwm;
 
   # Games
   games = import ./games;
 
   # Apps
   dunst = import ./apps/dunst;
+  sxhkd = import ./apps/sxhkd;
   webcord = import ./apps/webcord;
   eww = import ./apps/eww;
   foot = import ./apps/foot;

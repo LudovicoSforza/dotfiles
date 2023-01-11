@@ -17,7 +17,10 @@
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
     outputs.homeManagerModules.hyprland
-    outputs.homeManagerModules.i3
+
+    # For x11 you can only chose 1 of this
+    # outputs.homeManagerModules.i3
+    outputs.homeManagerModules.bspwm
 
     # Games
     outputs.homeManagerModules.games
