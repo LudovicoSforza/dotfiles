@@ -52,7 +52,7 @@
     outputs.homeManagerModules.scripts
 
     # Development
-    #outputs.homeManagerModules.neovim
+    outputs.homeManagerModules.neovim
     outputs.homeManagerModules.helix
     outputs.homeManagerModules.emacs
 
@@ -60,7 +60,7 @@
     inputs.hyprland.homeManagerModules.default
     inputs.spicetify-nix.homeManagerModule
     inputs.nix-colors.homeManagerModule
-    #inputs.nix-index-database.hmModules.nix-index
+    inputs.nix-index-database.hmModules.nix-index
 
     # FIXME: remove this comment if you want to use nix-doom-emacs version
     # inputs.nix-doom-emacs.hmModule
@@ -79,7 +79,7 @@
       # Or overlays exported from other flakes:
       inputs.nur.overlay
       inputs.hyprpicker.overlays.default
-      inputs.nixpkgs-wayland.overlay
+      # inputs.nixpkgs-wayland.overlay
 
       # Or define it inline, for example:
       # (final: prev: {
