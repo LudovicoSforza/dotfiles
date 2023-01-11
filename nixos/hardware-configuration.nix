@@ -9,74 +9,41 @@
       (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
     {
-      device = "/dev/disk/by-uuid/beff5c7b-40fe-4ddb-8c7a-7700353bee4e";
+      device = "/dev/disk/by-uuid/26e56ccc-2515-4ded-b53d-1131b1d75770";
       fsType = "btrfs";
-      options = [ "subvol=root" "compress=zstd" "noatime" ];
-      neededForBoot = true;
+      options = [ "subvol=@" "autodefrag" "commit=120" "discard=async" "ssd" "noatime" "compress=zstd:1" "space_cache=v2" ];
     };
 
-  boot.initrd.luks.devices."enc".device = "/dev/disk/by-uuid/462863b2-6c23-4d6a-b8a3-2105d929808c";
+  boot.initrd.luks.devices."luks-a4551de6-67de-433d-94f1-7bde6f6ee702".device = "/dev/disk/by-uuid/a4551de6-67de-433d-94f1-7bde6f6ee702";
 
-  fileSystems."/nix" =
+  fileSystems."/boot" =
     {
-      device = "/dev/disk/by-uuid/beff5c7b-40fe-4ddb-8c7a-7700353bee4e";
-      fsType = "btrfs";
-      options = [ "subvol=nix" "compress=zstd" "noatime" ];
-    };
-
-  fileSystems."/var/log" =
-    {
-      device = "/dev/disk/by-uuid/beff5c7b-40fe-4ddb-8c7a-7700353bee4e";
-      fsType = "btrfs";
-      options = [ "subvol=log" "compress=zstd" "noatime" ];
-      neededForBoot = true;
-    };
-
-  fileSystems."/nix/store" =
-    {
-      device = "/var/log/nix/store";
-      fsType = "none";
-      options = [ "bind" ];
+      device = "/dev/disk/by-uuid/0D2B-651B";
+      fsType = "vfat";
     };
 
   fileSystems."/home" =
     {
-      device = "/dev/disk/by-uuid/beff5c7b-40fe-4ddb-8c7a-7700353bee4e";
+      device = "/dev/disk/by-uuid/27afdbb9-adfd-40d4-a03f-b9bb49311a6f";
       fsType = "btrfs";
-      options = [ "subvol=home" "compress=zstd" "noatime" ];
-    };
-
-  fileSystems."/persist" =
-    {
-      device = "/dev/disk/by-uuid/beff5c7b-40fe-4ddb-8c7a-7700353bee4e";
-      fsType = "btrfs";
-      options = [ "subvol=persist" "compress=zstd" "noatime" ];
-      neededForBoot = true;
-    };
-
-  fileSystems."/boot" =
-    {
-      device = "/dev/disk/by-uuid/1810-0415";
-      fsType = "vfat";
+      options = [ "noatime" "autodefrag" "discard=async" "ssd" "compress=zstd:1" "space_cache=v2" ];
     };
 
   fileSystems."/Stuff" =
     {
       device = "/dev/disk/by-uuid/e6cc4b28-e7b4-4691-a673-f9281f7d8b9d";
       fsType = "ext4";
-      options = [ "noatime" ];
+      options = [ "rw" "relatime" "noatime" ];
     };
 
-  swapDevices = [{
-    device = "/dev/disk/by-uuid/be1744bf-8df3-4777-b889-f200a2906654";
-  }];
+  swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
