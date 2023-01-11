@@ -3,7 +3,6 @@
 , ...
 }: {
   home.packages = with pkgs; [ commitizen zoxide exa fzf fd bat ripgrep lazygit ];
-  programs.nix-index.enable = true;
   programs.fish = {
     enable = true;
     functions = {
@@ -14,11 +13,10 @@
       gadd = "git add $argv";
     };
     interactiveShellInit = with lib;with pkgs;''
-            starship init fish | source
-              ${getExe pkgs.any-nix-shell} fish --info-right | source
-              ${getExe pkgs.zoxide} init fish | source
-              ${getExe pkgs.direnv} hook fish | source
-      ${pkgs.nix-index}/etc/profile.d/command-not-found.sh | source
+      starship init fish | source
+        ${getExe pkgs.any-nix-shell} fish --info-right | source
+        ${getExe pkgs.zoxide} init fish | source
+        ${getExe pkgs.direnv} hook fish | source
     '';
     shellAliases = with pkgs; {
       "bs" = "doas nixos-rebuild switch --flake ~/.config/nixos";

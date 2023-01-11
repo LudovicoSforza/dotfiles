@@ -26,12 +26,6 @@
     # Doom Emacs
     # nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
 
-    # Nix Index Database
-    nix-index-database = {
-      url = "github:Mic92/nix-index-database";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Home manager
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -64,7 +58,6 @@
     , home-manager
     , hyprland
     , nix-colors
-    , nix-index-database
     , ...
     } @ inputs:
     let

@@ -60,7 +60,6 @@
     inputs.hyprland.homeManagerModules.default
     inputs.spicetify-nix.homeManagerModule
     inputs.nix-colors.homeManagerModule
-    inputs.nix-index-database.hmModules.nix-index
 
     # FIXME: remove this comment if you want to use nix-doom-emacs version
     # inputs.nix-doom-emacs.hmModule
